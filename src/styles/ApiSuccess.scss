@@ -1,0 +1,106 @@
+.container-city_name {
+  padding-top: 2em;
+}
+
+.apiSuccess-container {
+  box-shadow: 2px 2px 2px grey;
+  width: 60vw;
+  margin: auto;
+  //background-color: #15428c;
+  border: 1px solid grey;
+
+  padding-bottom: 2em;
+  border-radius: 5px;
+  margin-top: 2em;
+  color: rgb(63, 63, 63);
+  &-button {
+    padding-top: 1em;
+  }
+}
+
+.container-temp {
+  width: 40vw;
+  margin: auto;
+  height: 5em;
+  display: flex;
+  flex-direction: row;
+  &-temp {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    width: 40%;
+    height: 5em;
+    line-height: 5em;
+  }
+  &-icon {
+    margin: auto;
+    width: 40%;
+    height: 5em;
+  }
+  &-symbol {
+    width: 5%;
+    margin: auto;
+    height: 5em;
+    line-height: 5em;
+  }
+}
+.container-follow {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2em;
+}
+.container-trash,
+.container-heart {
+  width: 1.5em;
+  height: 1.5em;
+}
+.container-heart > svg {
+  width: 1.5em;
+  height: 1.5em;
+  margin: auto;
+}
+.container-trash > svg {
+  width: 1.5em;
+  height: 1.5em;
+  margin: auto;
+}
+
+.today {
+  color: black;
+}
+
+@media screen and (max-width: 650px) {
+  .today {
+    color: black;
+  }
+  .apiSuccess-container {
+    width: 80vw;
+  }
+  .container-temp {
+    width: 40vw;
+    margin: auto;
+    height: 5em;
+    display: flex;
+    flex-direction: row;
+    &-temp {
+      margin: auto;
+      width: 40%;
+      height: 5em;
+      line-height: 5em;
+      display: flex;
+      flex-direction: row;
+    }
+    &-icon {
+      margin: auto;
+      width: 40%;
+      height: 5em;
+      line-height: 5em;
+    }
+    &-symbol {
+      width: 5%;
+      margin: auto;
+      height: 5em;
+      line-height: 5em;
+    }
+  }
+}

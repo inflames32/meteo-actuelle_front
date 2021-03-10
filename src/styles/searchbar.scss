@@ -1,0 +1,52 @@
+.form-input {
+  padding-top: 2em;
+}
+
+.container-button {
+  margin-left: 1em !important;
+  height: 3em !important;
+}
+
+.search-bar {
+  height: 3em !important;
+  width: 60vw !important;
+  border: #767676 0.1px solid !important;
+  border-radius: 3px;
+}
+
+.select {
+  margin: auto;
+  height: 3em !important;
+}
+
+@media screen and (max-width: 650px) {
+  .search-bar {
+    height: 3em !important;
+    width: 60% !important;
+    margin: auto !important;
+    border: #767676 0.1px solid !important;
+    border-radius: 3px;
+  }
+  .select {
+    margin: auto;
+    height: 3em !important;
+    width: 60vw !important;
+    margin-bottom: 1vh;
+  }
+
+  .container-searchbar {
+    width: 100% !important;
+  }
+  .form-input {
+    padding-top: 2em;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
+
+  .container-button {
+    width: auto !important;
+    margin: auto !important;
+    margin-top: 1em !important;
+  }
+}

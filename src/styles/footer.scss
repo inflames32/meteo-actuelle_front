@@ -1,0 +1,26 @@
+.footer-container {
+  background-color: #122229;
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 9vh;
+  line-height: 9vh;
+  align-items: center;
+  &-title {
+    margin: auto;
+    color: #d9e5ef !important;
+    font-size: 1.2em;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .footer-container {
+    height: 9vh;
+    line-height: 9vh;
+    width: 100vw;
+    &-title {
+      color: #d9e5ef !important;
+      font-size: 1.2em;
+    }
+  }
+}

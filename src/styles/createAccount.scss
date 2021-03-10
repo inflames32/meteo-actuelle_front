@@ -1,0 +1,89 @@
+.createaccount-container {
+  width: 100vw;
+  min-height: 100vh;
+  max-height: auto;
+  background-color: white;
+  text-align: center;
+  justify-content: center;
+  &-contact {
+    display: flex;
+  }
+}
+.createaccount-body {
+  height: 80vh;
+}
+
+.createaccount-form {
+  padding-top: 5.2em;
+  width: 80vw;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+.createaccount-form-required-text {
+  font-size: 1.4em;
+}
+
+.createaccount-form-email,
+.createaccount-form-password,
+.createaccount-form-password_confirm {
+  height: 3em !important;
+  width: 30vw;
+  margin: auto;
+  margin-top: 1em;
+}
+
+.createAccount-form-button {
+  margin-top: 2em;
+}
+
+.message {
+  font-size: 1.5em;
+  font-weight: bold;
+  padding-top: 1em;
+}
+
+.createAccount-title {
+  padding-top: 5em;
+}
+.required {
+  color: red;
+  font-size: 1.4em;
+}
+
+@media screen and (max-width: 746px) {
+  .createaccount-body {
+    height: 81vh;
+  }
+  .createaccount-container {
+    min-height: 100vh;
+    max-height: auto;
+  }
+  .createaccount-form-required-text {
+    font-size: 1.4em;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .createaccount-container {
+    min-height: 100vh;
+    max-height: 100vh;
+  }
+  .createaccount-body {
+    height: 88vh;
+  }
+}
+
+@media screen and (height: 800px) {
+  .search-bar {
+    margin: auto !important;
+    width: 60vw !important;
+  }
+  .createaccount-form-password,
+  .createaccount-form-email,
+  .createaccount-form-password_confirm {
+    margin: auto !important;
+    width: 60vw !important;
+    padding-top: 1em !important;
+  }
+}
