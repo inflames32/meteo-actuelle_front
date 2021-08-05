@@ -1,21 +1,30 @@
 .container-city_name {
-  padding-top: 2em;
+  display: flex;
+  justify-content: center;
+  padding-top: 1em;
+  align-items: center;
 }
 
 .apiSuccess-container {
-  box-shadow: 2px 2px 2px grey;
   width: 60vw;
   margin: auto;
+  font-size: 18px;
+  font-weight: 600;
   //background-color: #15428c;
-  border: 1px solid grey;
 
+  background-color: #598bad;
+  //background-color: #6bc5ff;
   padding-bottom: 2em;
   border-radius: 5px;
   margin-top: 2em;
-  color: rgb(63, 63, 63);
-  &-button {
-    padding-top: 1em;
-  }
+  color: white;
+}
+.container-city_name-country {
+  margin: 1em;
+}
+
+.today {
+  color: white !important;
 }
 
 .container-temp {
@@ -25,6 +34,10 @@
   display: flex;
   flex-direction: row;
   &-temp {
+    display: flex;
+    justify-content: center;
+    color: white;
+
     display: flex;
     flex-direction: row;
     margin: auto;
@@ -51,15 +64,21 @@
 }
 .container-trash,
 .container-heart {
+  color: white;
+  font-weight: bold;
   width: 1.5em;
   height: 1.5em;
 }
 .container-heart > svg {
+  color: white;
+  font-weight: bold;
   width: 1.5em;
   height: 1.5em;
   margin: auto;
 }
 .container-trash > svg {
+  color: white;
+  font-weight: bold;
   width: 1.5em;
   height: 1.5em;
   margin: auto;
@@ -102,5 +121,9 @@
       height: 5em;
       line-height: 5em;
     }
+  }
+
+  .container-weather {
+    margin-bottom: 1em;
   }
 }

@@ -38,6 +38,7 @@ const initialState = {
     },
      */
   menuIsOpen: false,
+  propIn: false,
   createAccount: {
     email: "",
     password: "",
@@ -94,6 +95,7 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         menuIsOpen: false,
+        inProp: false,
       };
 
     case LOGOUT:

@@ -1,13 +1,15 @@
 .homepage-container {
   width: 100vw;
   min-height: 100vh;
-  max-height: auto;
-  background-color: white;
+  background-color: #c2ccd0;
   text-align: center;
 }
 .homepage-body {
   min-height: 81vh;
+  background-color: #c2ccd0;
   // max-height: auto;
+  max-width: 80%;
+  margin: auto;
 }
 
 .homepage-title {
@@ -28,10 +30,9 @@
 @media screen and (max-width: 746px) {
   .homepage-container {
     min-height: 100vh;
-    // max-height: auto;
   }
   .homepage-body {
-    min-height: 82vh;
+    min-height: 83vh;
     max-height: auto;
   }
 }
@@ -42,7 +43,7 @@
     // max-height: auto !important;
   }
   .homepage-body {
-    min-height: 82vh;
+    min-height: 83vh;
     // max-height: auto !important;
   }
 }

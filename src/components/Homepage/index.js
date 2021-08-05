@@ -9,19 +9,18 @@ import ApiUseEffect from "../Weather/ApiUseEffect";
 
 import "../../styles/homepage.scss";
 
-const Homepage = ({ APISuccessUseEffect, APISuccessUseEffectLoading }) => (
+const Homepage = ({ APISuccessUseEffectLoading }) => (
   <div className="homepage-container">
     <Header />
     <div className="homepage-body">
-      {APISuccessUseEffectLoading && (
+      {APISuccessUseEffectLoading ? (
         <div className="spinner">
           <Spinner animation="border" role="status">
             <span className="sr-only">Loading...</span>
           </Spinner>
         </div>
-      )}
-      {!APISuccessUseEffectLoading && (
-        <div>
+      ) : (
+        <div className="useEffect_weather">
           <span className="exemple">Exemple de météo possible:</span>
           <ApiUseEffect />
         </div>

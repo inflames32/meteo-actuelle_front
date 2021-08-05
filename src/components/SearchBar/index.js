@@ -1,7 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
+import { BiSearch } from "react-icons/bi";
+
 //import propTypes from "prop-types";
-import { Button } from "react-bootstrap";
+import {
+  Button,
+  InputGroup,
+  Dropdown,
+  FormControl,
+  DropdownButton,
+  Spinner,
+} from "react-bootstrap";
 
 import {
   inputCityChange,
@@ -42,7 +51,7 @@ const SearchBar = ({
         {messageError && <div>message: {messageError}</div>}
         {messageSuccess && <div>message: {messageSuccess}</div>}
         <select
-          className="select"
+          className="select other"
           name="country"
           value={choose}
           onChange={handleCountry}
@@ -62,7 +71,6 @@ const SearchBar = ({
             Monde
           </option>
         </select>
-
         <input
           className="search-bar"
           placeholder="Nom de la ville"
@@ -73,18 +81,18 @@ const SearchBar = ({
           }}
           icon="search"
         />
-        {loading && (
-          <Button type="submit" className="container-button" loading />
-        )}
-
-        {!loading && (
-          <Button
-            className="container-button "
-            variant="secondary"
-            type="submit"
-          >
-            Rechercher la ville
+        {loading ? (
+          <Button type="submit" className="button-loading" loading>
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden" />
+            </Spinner>
           </Button>
+        ) : (
+          !loading && (
+            <Button className="container-button " type="submit">
+              <BiSearch />
+            </Button>
+          )
         )}
       </form>
     </div>

@@ -7,9 +7,10 @@ import "../../styles/burger-menu.scss";
 const BurgerMenu = () => (
   <div className="burger-menu-container">
     <nav className="burger-menu-navigation">
-      <div className="close-menu" onClick={closeMenu()}>
+      <span className="close-menu">Meteo Actuelle</span>
+      <span className="close-menu" onClick={closeMenu()}>
         X
-      </div>
+      </span>
       <Link to="/signup" className="burger-menu-containe-create menu-item">
         Créer ton compte?
       </Link>

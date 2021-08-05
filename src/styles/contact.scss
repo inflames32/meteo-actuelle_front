@@ -2,12 +2,13 @@
   width: 100vw;
   min-height: 100vh;
   max-height: auto;
-  background-color: white;
+  background-color: #c2ccd0;
   text-align: center;
   justify-content: center;
+  color: white;
 
   &-body {
-    height: 80vh;
+    height: 81vh;
   }
 
   &-body-title {
@@ -39,8 +40,10 @@ img {
   width: 20px;
 }
 
-.name {
-  color: #a78d1c;
+.contact-email > a {
+  color: white !important;
+  text-decoration: none !important;
+  cursor: pointer;
 }
 
 .text {
@@ -72,6 +75,12 @@ h1 {
   width: auto;
 }
 
+.contact-container-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media only screen and (max-width: 750px) {
   /* Styles */
   .contact-container {
@@ -79,8 +88,7 @@ h1 {
     &-body {
       width: 80%;
       margin: auto;
-      min-height: 87vh;
-      max-height: auto;
+      height: 85vh;
     }
     &-body-card {
       padding-top: 10em;
@@ -104,7 +112,7 @@ h1 {
     min-height: 100vh;
     max-height: 100vh;
     &-body {
-      height: 94vh;
+      height: 85vh;
       &-card {
         padding-top: 10vh;
       }

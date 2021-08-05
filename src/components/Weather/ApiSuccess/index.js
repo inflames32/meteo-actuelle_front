@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { HeartOutlined, HeartFilled, DeleteOutlined } from "@ant-design/icons";
+import moment from "moment";
 import {
   selectUnit,
   addFollowed,
@@ -28,13 +29,18 @@ const ApiSuccess = ({
     console.log("je supprime cette ville");
     deleteCityOnClick();
   };
+  const date = moment().locale("fr").format("dddd, Do MMMM ");
+
   return (
     <div className="apiSuccess-container">
       <div className="apiSuccess-container-button">
         <div className="container-city_name">
-          {API.name} {API.sys.country}
+          <span className="container-city_name-country">
+            <span className="today">{date}</span>
+            {API.name} ({API.sys.country})
+          </span>
           <div>
-            <img src={flag} alt="country flag" />
+            <img src={flag} alt="country flag" className="flag" />
           </div>
         </div>
       </div>
@@ -42,7 +48,7 @@ const ApiSuccess = ({
         <div className="container-temp-icon">
           <img src={weatherIcon} alt="icon_weather" />
         </div>
-        <div className="container-temp-symbol">|</div>
+
         <div className="container-temp-temp">
           {temp}
           <span>°C</span>

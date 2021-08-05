@@ -1,5 +1,6 @@
 import React from "react";
-
+import { FaTwitch, FaLinkedin, FaGithub } from "react-icons/fa";
+import { Card, Button } from "react-bootstrap";
 import Header from "../Header";
 import Footer from "../Footer";
 
@@ -11,34 +12,37 @@ const Contact = () => (
   <div className="contact-container">
     <Header />
     <div className="contact-container-body">
-      <h1 className="contact-container-body-title">Contact</h1>
       <div className="contact-container-body-card">
         <div className="card">
-          <div className="photo">
-            <img src={pierre} alt="Pierre Cahuzac" />
-          </div>
           <div className="text">
-            <p className="name">Pierre Cahuzac</p>
-            <p className="function"> Product Owner / Dev fullstack</p>
-            <div className="socials-networks">
-              <div className="div-icon">
-                <div className="icon">
-                  <a href="https://www.linkedin.com/in/pierre-cahuzac-60b8491a4/">
-                    {/*    <GrLinkedin /> */}
-                  </a>
-                </div>
-                <div className="icon">
-                  <a href="https://github.com/inflames32">
-                    {/*  <GrGithub /> */}
-                  </a>
-                </div>
-                <div className="icon">
-                  <a href="https://www.twitch.tv/badtupeupastest">
-                    {/*     <FaTwitch /> */}
-                  </a>
-                </div>
-              </div>
+            <div className="contact-email">
+              <a href="mailto:cahuzac.p@gmail.com">Me contacter</a>
             </div>
+            <Card>
+              <Card.Body>
+                <Card.Text>
+                  <div className="div-icon">
+                    <div className="icon">
+                      <a href="https://www.linkedin.com/in/pierre-cahuzac-60b8491a4/">
+                        <FaLinkedin />
+                      </a>
+                    </div>
+                    <div className="icon">
+                      <a href="https://github.com/inflames32">
+                        <FaGithub />
+                      </a>
+                    </div>
+                    <div className="icon">
+                      <a href="https://www.twitch.tv/badtupeupastest">
+                        <FaTwitch />
+                      </a>
+                    </div>
+                  </div>
+                </Card.Text>
+              </Card.Body>
+            </Card>
+
+            <div className="socials-networks"></div>
           </div>
         </div>
       </div>

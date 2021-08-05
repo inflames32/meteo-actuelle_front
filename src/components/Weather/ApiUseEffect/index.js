@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { HeartOutlined, HeartFilled, DeleteOutlined } from "@ant-design/icons";
+import moment from "moment";
 
 import {
   selectUnit,
@@ -22,6 +23,7 @@ const ApiUseEffect = ({
   const tempFeel = APISuccessUseEffect.main.feels_like.toFixed(1);
   const windInKmByHour = Math.trunc(APISuccessUseEffect.wind.speed * 3.6);
   const weatherIcon = `http://openweathermap.org/img/wn/${APISuccessUseEffect.weather[0].icon}@2x.png`;
+  const date = moment().locale("fr").format("dddd, Do MMMM ");
   const flag = `https://www.countryflags.io/${APISuccessUseEffect.sys.country}/flat/64.png`;
   const handleBtnTrash = () => {
     console.log("je supprime cette ville");
@@ -31,7 +33,10 @@ const ApiUseEffect = ({
     <div className="apiSuccess-container">
       <div className="apiSuccess-container-button">
         <div className="container-city_name">
-          {APISuccessUseEffect.name} {APISuccessUseEffect.sys.country}
+          <span className="container-city_name-country">
+            <span className="today">{date}</span>
+            {APISuccessUseEffect.name} {APISuccessUseEffect.sys.country}
+          </span>
           <div>
             <img src={flag} alt="country flag" />
           </div>
@@ -41,7 +46,6 @@ const ApiUseEffect = ({
         <div className="container-temp-icon">
           <img src={weatherIcon} alt="icon_weather" />
         </div>
-        <div className="container-temp-symbol">|</div>
         <div className="container-temp-temp">
           {temp}
           <span>°C</span>

@@ -2,11 +2,11 @@
   color: #d9e5ef !important;
   background-color: #122229;
   width: 100vw;
-  height: 10vh;
-  line-height: 10vh;
+  height: 6vh;
+  line-height: 6vh;
   display: flex;
   justify-content: space-between;
-  box-shadow: 5px 5px 5px grey;
+  align-items: center;
 }
 
 .header-container-create,
@@ -29,10 +29,14 @@
 
 .header-container-title {
   width: auto;
-  height: 9vh;
+  height: 6vh;
   color: white;
   font-size: 1.5em;
   margin-left: 5vw;
+  text-decoration: none;
+}
+.header-container-title:hover {
+  text-decoration: none;
 }
 .header-container-myaccount {
   display: none;
@@ -99,12 +103,26 @@
   margin: auto;
 }
 
+.my-node-enter {
+  opacity: 0;
+}
+.my-node-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+.my-node-exit {
+  opacity: 1;
+}
+.my-node-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
 @media screen and (min-width: 746px) {
   .header-submenu {
     display: none;
   }
   .header-container {
-    box-shadow: 5px 5px 5px grey;
     color: #d9e5ef !important;
     background-color: #122229;
     display: flex;
@@ -135,6 +153,7 @@
     font-weight: bold;
     font-size: 1.2em;
     display: inline-block;
+    text-decoration: none;
   }
 
   .header-container-create:hover,
@@ -151,6 +170,8 @@
     font-size: 1.2em;
     display: inline-block;
     justify-content: space-evenly;
+    text-decoration: none;
+    transition: 0.8s;
   }
   .header-container-title:hover {
     background-color: #85b7d9;
@@ -163,6 +184,7 @@
     font-size: 1.2em;
     display: inline-block;
     justify-content: space-evenly;
+    text-decoration: none;
   }
   .header-container-logout {
     width: 10vw;

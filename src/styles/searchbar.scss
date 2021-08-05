@@ -7,6 +7,11 @@
   height: 3em !important;
 }
 
+.container-searchbar {
+  display: flex;
+  justify-content: center;
+}
+
 .search-bar {
   height: 3em !important;
   width: 60vw !important;
@@ -15,8 +20,25 @@
 }
 
 .select {
-  margin: auto;
   height: 3em !important;
+  border-radius: 5px;
+  border: solid 0.5px black;
+}
+
+.select:hover {
+  height: 3em !important;
+  background-color: grey;
+  color: white;
+  transition: 0.3s;
+  border-radius: 5px;
+  border: solid 0.5px black;
+}
+
+.form-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 95% !important;
 }
 
 @media screen and (max-width: 650px) {
@@ -35,8 +57,11 @@
   }
 
   .container-searchbar {
+    display: flex;
+    justify-content: center;
     width: 100% !important;
   }
+
   .form-input {
     padding-top: 2em;
     display: flex;
