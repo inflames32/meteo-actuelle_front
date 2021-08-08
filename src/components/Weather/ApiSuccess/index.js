@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { HeartOutlined, HeartFilled, DeleteOutlined } from "@ant-design/icons";
-import moment from "moment";
+
+import { DateTime } from "luxon";
 import {
   selectUnit,
   addFollowed,
@@ -20,19 +21,23 @@ const ApiSuccess = ({
   removeFollowed,
   deleteCityOnClick,
 }) => {
+  var dt = DateTime.now();
+  var f = { month: "long", day: "numeric", year: "numeric" };
+  var date = dt.setLocale("fr").toLocaleString(f);
   const temp = API.main.temp.toFixed(1);
   const tempFeel = API.main.feels_like.toFixed(1);
   const windInKmByHour = Math.trunc(API.wind.speed * 3.6);
   const weatherIcon = `http://openweathermap.org/img/wn/${API.weather[0].icon}@2x.png`;
   const flag = `https://www.countryflags.io/${API.sys.country}/flat/64.png`;
   const handleBtnTrash = () => {
+    console.log(DateTime);
     console.log("je supprime cette ville");
     deleteCityOnClick();
   };
-  const date = moment().locale("fr").format("dddd, Do MMMM ");
 
   return (
     <div className="apiSuccess-container">
+      <p>{}</p>
       <div className="apiSuccess-container-button">
         <div className="container-city_name">
           <span className="container-city_name-country">
@@ -44,9 +49,10 @@ const ApiSuccess = ({
           </div>
         </div>
       </div>
+
       <div className="container-temp">
         <div className="container-temp-icon">
-          <img src={weatherIcon} alt="icon_weather" />
+          <img className="img-weather" src={weatherIcon} alt="icon_weather" />
         </div>
 
         <div className="container-temp-temp">
@@ -54,20 +60,22 @@ const ApiSuccess = ({
           <span>°C</span>
         </div>
       </div>
-      <div className="container-temp_feel">
-        Température ressentie: {tempFeel} °C
-      </div>
-      <div className="container-city_cloud">
-        Couverture nuageuse: {API.weather[0].description}, {API.clouds.all} %
-      </div>
-      <div className="container-city_humidity">
-        Humidité: {API.main.humidity} %
-      </div>
-      <div className="container-city_wind">Vent: {windInKmByHour} Km/h</div>
-      <div className="container-city_visibility">
-        Visibilité: {API.visibility} m
-      </div>
-      <div className="container-follow">
+      <details>
+        <div className="container-temp_feel">
+          Température ressentie: {tempFeel} °C
+        </div>
+        <div className="container-city_cloud">
+          Couverture nuageuse: {API.weather[0].description}, {API.clouds.all} %
+        </div>
+        <div className="container-city_humidity">
+          Humidité: {API.main.humidity} %
+        </div>
+        <div className="container-city_wind">Vent: {windInKmByHour} Km/h</div>
+        <div className="container-city_visibility">
+          Visibilité: {API.visibility} m
+        </div>
+      </details>
+      {/*    <div className="container-follow">
         {!followed && (
           <div className="container-heart" onClick={addFollowed}>
             <HeartOutlined />
@@ -81,7 +89,7 @@ const ApiSuccess = ({
         <div className="container-trash" onClick={handleBtnTrash}>
           <DeleteOutlined />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

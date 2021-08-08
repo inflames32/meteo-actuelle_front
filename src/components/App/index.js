@@ -13,13 +13,14 @@ import Error404 from "../error404";
 import User from "../User";
 import store from "../../store";
 
+import "../../styles/_reset.css";
 import "../../styles/App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
-require("dotenv").config();
+
+//require("dotenv").config();
 // == Composant
 const App = ({ APIUseEffect, APISuccessUseEffect }) => {
   useEffect(() => {
-    console.log("useEffect");
     APIUseEffect();
   }, []);
 

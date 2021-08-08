@@ -25,7 +25,7 @@ const APIUseEffect = (store) => (next) => (action) => {
         url: `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=183deee9a13cf0287c807a50c35417d1&lang=${lang}`,
       })
         .then((res) => {
-          console.log(res.data, "reponse ici");
+          //console.log(res.data, "reponse ici");
           store.dispatch(APIUseEffectSuccess(res.data));
         })
         .catch((e) => {

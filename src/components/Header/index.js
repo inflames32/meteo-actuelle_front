@@ -33,10 +33,10 @@ const Header = ({
             Météo actuelle
           </Link>
           <Link to="/signup" className="header-container-create">
-            Créer ton compte
+            S'incrire
           </Link>
           <Link to="/signin" className="header-container-login">
-            Connexion
+            Se connecter
           </Link>
           <a className="burger-menu" onClick={handleBurgerMenu}>
             |||

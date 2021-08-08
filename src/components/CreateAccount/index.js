@@ -1,12 +1,15 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { Input, Button } from 'semantic-ui-react';
-import { submitCreateAccountForm, onCreateAccountInputChange } from '../../store/actions';
+import React from "react";
+import { connect } from "react-redux";
+import { Button } from "react-bootstrap";
+import {
+  submitCreateAccountForm,
+  onCreateAccountInputChange,
+} from "../../store/actions";
 
-import Header from '../Header';
-import Footer from '../Footer';
+import Header from "../Header";
+import Footer from "../Footer";
 
-import '../../styles/createAccount.scss';
+import "../../styles/createAccount.scss";
 
 const CreateAccount = ({
   createAccount,
@@ -40,9 +43,12 @@ const CreateAccount = ({
             action="submit"
             onSubmit={handleSubmit}
           >
-            <div className="createaccount-form-required-text">Les champs marqués d'un <span className="required">*</span> sont obligatoires</div>
+            <div className="createaccount-form-required-text">
+              Les champs marqués d'un <span className="required">*</span> sont
+              obligatoires
+            </div>
             <div>
-              <Input
+              <input
                 className="createaccount-form-email"
                 type="email"
                 name="email"
@@ -54,7 +60,7 @@ const CreateAccount = ({
               <span className="required"> *</span>
             </div>
             <div>
-              <Input
+              <input
                 className="createaccount-form-password"
                 type="password"
                 name="password"
@@ -66,7 +72,7 @@ const CreateAccount = ({
               <span className="required"> *</span>
             </div>
             <div>
-              <Input
+              <input
                 className="createaccount-form-password_confirm"
                 type="password"
                 name="passwordConfirm"
@@ -79,17 +85,14 @@ const CreateAccount = ({
             </div>
 
             <div className="createAccount-form-button">
-              {!disabled && (
-                <Button type="submit">Je crée mon compte</Button>
-              )}
-              {message && (<p className="message">{message}</p>)}
+              {!disabled && <Button type="submit">Je crée mon compte</Button>}
+              {message && <p className="message">{message}</p>}
             </div>
           </form>
         </div>
       </div>
       <Footer />
     </div>
-
   );
 };
 

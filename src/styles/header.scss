@@ -1,5 +1,6 @@
 .header-container {
-  color: #d9e5ef !important;
+  color: #d9e5ef !important ;
+  text-align: center;
   background-color: #122229;
   width: 100vw;
   height: 6vh;
@@ -44,25 +45,24 @@
 
 .burger-menu {
   color: white;
-  width: 5vw;
-  height: 8vh;
-  line-height: 8vh;
+  width: 6vw;
+  height: 6vh;
+  line-height: 6vh;
   transform: rotate(90deg) !important;
   display: inline-block;
-  margin-right: 5vw;
-  margin-top: 0.4vh;
+  margin-right: 20px;
   font-size: 2em;
   cursor: pointer;
 }
 
 .burger-menu:hover {
-  width: 5vw;
-  height: 8vh;
-  line-height: 8vh;
+  color: white;
+  width: 6vw;
+  height: 6vh;
+  line-height: 6vh;
   transform: rotate(90deg) !important;
   display: inline-block;
-  margin-right: 5vw;
-  margin-top: 0.4vh;
+  margin-right: 20px;
   font-size: 2em;
   cursor: pointer;
 }
@@ -103,21 +103,6 @@
   margin: auto;
 }
 
-.my-node-enter {
-  opacity: 0;
-}
-.my-node-enter-active {
-  opacity: 1;
-  transition: opacity 200ms;
-}
-.my-node-exit {
-  opacity: 1;
-}
-.my-node-exit-active {
-  opacity: 0;
-  transition: opacity 200ms;
-}
-
 @media screen and (min-width: 746px) {
   .header-submenu {
     display: none;
@@ -128,7 +113,7 @@
     display: flex;
     flex-direction: row;
     width: 100vw;
-    height: 10vh;
+    height: 6vh;
     justify-content: space-between;
     align-items: center;
   }
@@ -147,11 +132,10 @@
   .menu-logout {
     width: 25%;
     justify-content: space-evenly;
-    color: #d9e5ef !important;
+    color: white !important;
+    font-size: 1.5em;
     height: 3em;
     line-height: 3em;
-    font-weight: bold;
-    font-size: 1.2em;
     display: inline-block;
     text-decoration: none;
   }
@@ -171,7 +155,7 @@
     display: inline-block;
     justify-content: space-evenly;
     text-decoration: none;
-    transition: 0.8s;
+    transition: 0.4s;
   }
   .header-container-title:hover {
     background-color: #85b7d9;

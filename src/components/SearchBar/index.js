@@ -34,58 +34,60 @@ const SearchBar = ({
     evt.preventDefault();
     if (choose === "fr") {
       submitCityInFrance();
-      // console.log(submitCityInFrance);
+      console.log(submitCityInFrance);
     } else {
       submitCitySearch();
-      // console.log(submitCitySearch);
+      console.log(submitCitySearch);
     }
   };
   const handleCountry = (evt) => {
     const worldZone = evt.target.value;
     selectZone(worldZone);
-    // console.log(`j'ai choisi ---${evt.target.value}---`);
+    console.log(`j'ai choisi ---${evt.target.value}---`);
   };
   return (
     <div className="container-searchbar">
       <form className="form-input" action="GET" onSubmit={handleSubmit}>
         {messageError && <div>message: {messageError}</div>}
         {messageSuccess && <div>message: {messageSuccess}</div>}
-        <select
-          className="select other"
-          name="country"
-          value={choose}
-          onChange={handleCountry}
-        >
-          <option className="select-country" value>
-            ---choisissez la zone---
-          </option>
-          <option
+        <div className="test">
+          <select
+            className="select other"
+            name="country"
+            value={choose}
             onChange={handleCountry}
-            name="france"
-            value="fr"
-            defaultChecked
           >
-            France
-          </option>
-          <option onChange={handleCountry} name="monde" value="world">
-            Monde
-          </option>
-        </select>
-        <input
-          className="search-bar"
-          placeholder="Nom de la ville"
-          type="text"
-          value={city}
-          onChange={(evt) => {
-            onInputChange(evt.target.value);
-          }}
-          icon="search"
-        />
+            <option className="select-country" value>
+              --- Vous cherchez ---
+            </option>
+            <option
+              onChange={handleCountry}
+              name="france"
+              value="fr"
+              defaultChecked
+            >
+              En France
+            </option>
+            <option onChange={handleCountry} name="monde" value="world">
+              Dans le monde
+            </option>
+          </select>
+          <div>
+            <input
+              className="search-bar"
+              placeholder="Nom de la ville"
+              type="text"
+              value={city}
+              onChange={(evt) => {
+                onInputChange(evt.target.value);
+              }}
+              icon="search"
+            />
+          </div>
+        </div>
         {loading ? (
-          <Button type="submit" className="button-loading" loading>
-            <Spinner animation="border" role="status">
-              <span className="visually-hidden" />
-            </Spinner>
+          <Button type="submit" className="container-button " loading>
+            ...chargement
           </Button>
         ) : (
           !loading && (

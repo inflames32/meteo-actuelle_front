@@ -9,8 +9,15 @@
 .login-body {
     height: 80vh;
 }
-
 .login-form {
+    width: 80vh;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.login-form-email,
+.login-form-password {
     padding-top: 5.2em;
     width: 80vw;
     margin: auto;
@@ -32,7 +39,7 @@
 }
 
 .login-body-input {
-    padding-top: 5em;
+    padding-top: 3em;
     width: 80vw;
     margin: auto;
     display: flex;

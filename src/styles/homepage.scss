@@ -5,9 +5,9 @@
   text-align: center;
 }
 .homepage-body {
-  min-height: 81vh;
+  min-height: 85vh;
   background-color: #c2ccd0;
-  // max-height: auto;
+
   max-width: 80%;
   margin: auto;
 }
@@ -32,7 +32,7 @@
     min-height: 100vh;
   }
   .homepage-body {
-    min-height: 83vh;
+    min-height: 85vh;
     max-height: auto;
   }
 }
@@ -40,11 +40,14 @@
 @media screen and (max-width: 650px) {
   .homepage-container {
     min-height: 100vh;
-    // max-height: auto !important;
   }
   .homepage-body {
-    min-height: 83vh;
-    // max-height: auto !important;
+    min-height: 85vh;
+  }
+
+  .exemple {
+    width: 100%;
+    font-size: 1.2em;
   }
 }
 
@@ -56,19 +59,5 @@
   .homepage-body {
     min-height: 88vh;
     max-height: auto !important;
-  }
-}
-
-@media screen and (max-height: 750px) {
-  .search-bar {
-    margin: auto !important;
-    width: 60vw !important;
-  }
-  .homepage-container {
-    min-height: 100vh;
-    max-height: auto !important;
-  }
-  .homepage-body {
-    min-height: 100vh;
   }
 }

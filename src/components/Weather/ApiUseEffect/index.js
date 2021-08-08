@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { HeartOutlined, HeartFilled, DeleteOutlined } from "@ant-design/icons";
-import moment from "moment";
+import { DateTime } from "luxon";
 
 import {
   selectUnit,
@@ -19,11 +19,14 @@ const ApiUseEffect = ({
   deleteCityOnClick,
   APISuccessUseEffect,
 }) => {
+  var dt = DateTime.now();
+  var f = { month: "long", day: "numeric", year: "numeric" };
+  var date = dt.setLocale("fr").toLocaleString(f);
   const temp = APISuccessUseEffect.main.temp.toFixed(1);
   const tempFeel = APISuccessUseEffect.main.feels_like.toFixed(1);
   const windInKmByHour = Math.trunc(APISuccessUseEffect.wind.speed * 3.6);
   const weatherIcon = `http://openweathermap.org/img/wn/${APISuccessUseEffect.weather[0].icon}@2x.png`;
-  const date = moment().locale("fr").format("dddd, Do MMMM ");
+
   const flag = `https://www.countryflags.io/${APISuccessUseEffect.sys.country}/flat/64.png`;
   const handleBtnTrash = () => {
     console.log("je supprime cette ville");
@@ -35,37 +38,40 @@ const ApiUseEffect = ({
         <div className="container-city_name">
           <span className="container-city_name-country">
             <span className="today">{date}</span>
-            {APISuccessUseEffect.name} {APISuccessUseEffect.sys.country}
+            {APISuccessUseEffect.name} ({APISuccessUseEffect.sys.country})
           </span>
           <div>
             <img src={flag} alt="country flag" />
           </div>
         </div>
       </div>
+
       <div className="container-temp">
         <div className="container-temp-icon">
-          <img src={weatherIcon} alt="icon_weather" />
+          <img src={weatherIcon} alt="icon_weather" className="img-weather" />
         </div>
         <div className="container-temp-temp">
           {temp}
           <span>°C</span>
         </div>
       </div>
-      <div className="container-temp_feel">
-        Température ressentie: {tempFeel} °C
-      </div>
-      <div className="container-city_cloud">
-        Couverture nuageuse: {APISuccessUseEffect.weather[0].description},{" "}
-        {APISuccessUseEffect.clouds.all} %
-      </div>
-      <div className="container-city_humidity">
-        Humidité: {APISuccessUseEffect.main.humidity} %
-      </div>
-      <div className="container-city_wind">Vent: {windInKmByHour} Km/h</div>
-      <div className="container-city_visibility">
-        Visibilité: {APISuccessUseEffect.visibility} m
-      </div>
-      <div className="container-follow">
+      <details className="details">
+        <div className="container-temp_feel">
+          Température ressentie: {tempFeel} °C
+        </div>
+        <div className="container-city_cloud">
+          Couverture nuageuse: {APISuccessUseEffect.weather[0].description},{" "}
+          {APISuccessUseEffect.clouds.all} %
+        </div>
+        <div className="container-city_humidity">
+          Humidité: {APISuccessUseEffect.main.humidity} %
+        </div>
+        <div className="container-city_wind">Vent: {windInKmByHour} Km/h</div>
+        <div className="container-city_visibility">
+          Visibilité: {APISuccessUseEffect.visibility} m
+        </div>
+      </details>
+      {/* <div className="container-follow">
         {!followed && (
           <div className="container-heart" onClick={addFollowed}>
             <HeartOutlined />
@@ -79,7 +85,7 @@ const ApiUseEffect = ({
         <div className="container-trash" onClick={handleBtnTrash}>
           <DeleteOutlined />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
