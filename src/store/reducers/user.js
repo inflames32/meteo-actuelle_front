@@ -1,6 +1,8 @@
 import {
   INPUT_CITY_CHANGE,
-  SUBMIT,
+  SUBMIT_WORLD,
+  SUBMIT_FRANCE,
+  GEOLOCALIZATION_HANDLE,
   SUBMIT_SUCCESS,
   SUBMIT_ERROR,
   ON_FORM_LOGIN_ERROR,
@@ -20,7 +22,6 @@ import {
   LOGOUT_SUCCESS,
   LOGOUT_ERROR,
   CHOOSE_COUNTRY,
-  SUBMIT_CITY_IN_FRANCE,
   DELETE_CITY_ON_CLICK,
   API_USE_EFFECT_SUCCESS,
   API_USE_EFFECT_ERROR,
@@ -37,6 +38,10 @@ const initialState = {
       choose: "",
     },
      */
+  coordonates: {
+    lat: "",
+    lon: "",
+  },
   menuIsOpen: false,
   propIn: false,
   createAccount: {
@@ -64,7 +69,7 @@ const initialState = {
     id: "",
   },
   weatherAPI: "",
-  choose: "",
+  choose: "france",
   APISuccessUseEffect: {},
   APISuccessUseEffectLoading: true,
 };
@@ -80,11 +85,13 @@ export default (state = initialState, action = {}) => {
         },
         APISuccessUseEffectLoading: false,
       };
+
     case CHOOSE_COUNTRY:
       return {
         ...state,
         choose: action.payload,
       };
+
     case OPEN_MENU:
       return {
         ...state,
@@ -101,13 +108,13 @@ export default (state = initialState, action = {}) => {
     case LOGOUT:
       return {
         ...state,
-        message: "déconnexion en cours...",
+        message: "Déconnexion en cours...",
       };
 
     case LOGOUT_SUCCESS:
       return {
         ...state,
-        message: "déconnexion réussie",
+        message: "Déconnexion réussie",
         isLogged: false,
         loginData: {
           email: "",
@@ -119,7 +126,7 @@ export default (state = initialState, action = {}) => {
     case LOGOUT_ERROR:
       return {
         ...state,
-        message: "problème de déconnexion",
+        message: "Erreur de déconnexion",
         isLogged: true,
       };
 
@@ -142,14 +149,14 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         loading: false,
-        message: "ton compte a été crée! ",
+        message: "Compte crée avec succès!",
       };
 
     case SUBMITCREATEACCOUNTFORMERROR:
       return {
         ...state,
         loading: false,
-        message: "impossible de créer ton compte!",
+        message: "Impossible de créer le compte",
       };
 
     case ADDFOLLOWED:
@@ -182,23 +189,32 @@ export default (state = initialState, action = {}) => {
         city: action.payload,
       };
 
-    case SUBMIT:
+    case SUBMIT_WORLD:
       return {
         ...state,
         loading: true,
       };
 
-    case SUBMIT_CITY_IN_FRANCE:
+    case SUBMIT_FRANCE:
       return {
         ...state,
         loading: true,
+      };
+
+    case GEOLOCALIZATION_HANDLE:
+      return {
+        ...state,
+        loading: true,
+        coordonates: {
+          ...state.payload,
+        },
       };
 
     case SUBMIT_SUCCESS:
       return {
         ...state,
         loading: false,
-        messageSuccess: "congratulations!",
+        messageSuccess: "Congratulations!",
         API: { ...action.payload },
         apiSuccess: true,
       };
@@ -207,7 +223,7 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         loading: false,
-        messageError: "ville inconnue ou zone de recherche vide",
+        messageError: "Ville inconnue/pas de recherche",
         apiSuccess: false,
         API: {},
       };
@@ -234,7 +250,7 @@ export default (state = initialState, action = {}) => {
         loadingLoginSubmit: false,
         userId: "",
         isLogged: false,
-        message: "erreur de connexion à votre compte",
+        message: "Erreur de connexion à votre compte",
       };
 
     case ON_FORM_LOGIN_SUCCESS:
@@ -246,7 +262,7 @@ export default (state = initialState, action = {}) => {
           ...state.loginData,
           id: action.payload,
         },
-        message: "vous êtes connecté",
+        message: "Vous êtes connecté",
       };
 
     default:

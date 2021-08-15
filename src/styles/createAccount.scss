@@ -1,15 +1,59 @@
+@media screen and (max-width: 650px) {
+  .createaccount-container {
+    max-height: 100vh;
+  }
+  .createaccount-body {
+    height: 91vh;
+  }
+
+  .createaccount-form {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 746px) {
+  .createaccount-body {
+    height: 91vh;
+  }
+  .createaccount-container {
+    min-height: 100vh;
+    max-height: auto;
+  }
+  .createaccount-form-required-text {
+    font-size: 1.4em;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .createaccount-container {
+    max-height: 100vh !important;
+  }
+  .createaccount-body {
+    height: 91vh;
+  }
+
+  .createaccount-form {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
 .createaccount-container {
   width: 100vw;
-  max-height: auto;
   background-color: #c2ccd0;
   text-align: center;
   justify-content: center;
-  &-contact {
-    display: flex;
-  }
 }
 .createaccount-body {
-  height: 81vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 91vh;
 }
 
 .createaccount-form {
@@ -20,75 +64,41 @@
   justify-content: center;
   flex-direction: column;
 }
-.createaccount-form-required-text {
-  font-size: 1.4em;
-}
 
 .createaccount-form-email,
 .createaccount-form-password,
 .createaccount-form-password_confirm {
   height: 3em !important;
-  width: 30vw;
-  margin: auto;
-  margin-top: 1em;
+  width: 80% !important;
+  margin: 0.3em !important;
+  border: none;
+  border-radius: 4px;
 }
 
-.createAccount-form-button {
-  margin-top: 2em;
+.btn-primary {
+  margin: auto !important;
+  width: 50%;
+  height: 48px;
+  color: black !important;
+  background-color: rgb(255, 255, 255) !important;
+  border: none !important;
+  border-radius: 5px;
+  margin-top: 1em !important;
+}
+
+.btn-primary:hover {
+  width: 50%;
+  height: 48px;
+  margin: auto !important;
+  color: white !important;
+  background-color: #598bad !important;
+  border: none !important;
+  border-radius: 5px;
+  margin-top: 1em !important;
 }
 
 .message {
   font-size: 1.5em;
   font-weight: bold;
   padding-top: 1em;
-}
-
-.createAccount-title {
-  padding-top: 2em;
-}
-.required {
-  color: red;
-  font-size: 1.4em;
-}
-@media screen and (max-width: 746px) {
-  .createaccount-body {
-    height: 85vh;
-  }
-  .createaccount-container {
-    min-height: 100vh;
-    max-height: auto;
-  }
-  .createaccount-form-required-text {
-    font-size: 1.4em;
-  }
-}
-@media screen and (max-width: 650px) {
-  .createaccount-container {
-    max-height: 100vh;
-  }
-  .createaccount-body {
-    height: 85vh;
-  }
-
-  .createaccount-form {
-    width: 80vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-}
-@media screen and (max-width: 500px) {
-  .createaccount-container {
-    max-height: 100vh !important;
-  }
-  .createaccount-body {
-    height: 85vh;
-  }
-
-  .createaccount-form {
-    width: 80vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
 }

@@ -33,9 +33,12 @@ export const CLOSE_MENU = "CLOSE_MENU";
 // = choix du pays
 export const CHOOSE_COUNTRY = "CHOOSE_COUNTRY";
 // = Submit en France
-export const SUBMIT_CITY_IN_FRANCE = "SUBMIT_CITY_IN_FRANCE";
+export const SUBMIT_FRANCE = "SUBMIT_FRANCE";
 // =Submit dans le monde
-export const SUBMIT = "SUBMIT";
+export const SUBMIT_WORLD = "SUBMIT_WORLD";
+
+// =Geolocalisation
+export const GEOLOCALIZATION_HANDLE = "GEOLOCALIZATION_HANDLE";
 
 // = API USE EFFECT
 export const API_USE_EFFECT = "API_USE_EFFECT";
@@ -61,12 +64,17 @@ export const chooseCountry = (payload) => ({
   payload,
 });
 
-export const submitCityInFrance = () => ({
-  type: SUBMIT_CITY_IN_FRANCE,
+export const submitFrance = () => ({
+  type: SUBMIT_FRANCE,
 });
 
 export const submit = () => ({
-  type: SUBMIT,
+  type: SUBMIT_WORLD,
+});
+
+export const geolocalizationHandle = (payload) => ({
+  type: GEOLOCALIZATION_HANDLE,
+  payload,
 });
 
 export const openMenu = () => ({

@@ -36,28 +36,23 @@ const CreateAccount = ({
       <Header />
 
       <div className="createaccount-body">
-        <h1 className="createAccount-title">Créer son compte</h1>
+        <h1 className="createAccount-title">Inscription</h1>
         <div>
           <form
             className="createaccount-form"
             action="submit"
             onSubmit={handleSubmit}
           >
-            <div className="createaccount-form-required-text">
-              Les champs marqués d'un <span className="required">*</span> sont
-              obligatoires
-            </div>
             <div>
               <input
                 className="createaccount-form-email"
                 type="email"
                 name="email"
                 value={createAccount.email}
-                placeholder="email"
+                placeholder="Email (obligatoire)"
                 onChange={handleInputChange}
                 focus
               />
-              <span className="required"> *</span>
             </div>
             <div>
               <input
@@ -65,11 +60,10 @@ const CreateAccount = ({
                 type="password"
                 name="password"
                 value={createAccount.password}
-                placeholder="mot de passe"
+                placeholder="Mot de passe (obligatoire)"
                 focus
                 onChange={handleInputChange}
               />
-              <span className="required"> *</span>
             </div>
             <div>
               <input
@@ -77,17 +71,16 @@ const CreateAccount = ({
                 type="password"
                 name="passwordConfirm"
                 value={createAccount.passwordConfirm}
-                placeholder="confirmation du mot de passe"
+                placeholder="Confirmation du mot de passe (obligatoire)"
                 focus
                 onChange={handleInputChange}
               />
-              <span className="required"> *</span>
             </div>
 
             <div className="createAccount-form-button">
-              {!disabled && <Button type="submit">Je crée mon compte</Button>}
-              {message && <p className="message">{message}</p>}
+              {!disabled && <Button type="submit">Valider</Button>}
             </div>
+            {message && <p className="message">{message}</p>}
           </form>
         </div>
       </div>

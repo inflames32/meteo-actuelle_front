@@ -12,7 +12,7 @@ const BurgerMenu = () => (
         X
       </span>
       <Link to="/signup" className="burger-menu-containe-create menu-item">
-        Créer ton compte?
+        Inscription
       </Link>
       <Link to="/signin" className="burger-menu-container-login menu-item">
         Connexion

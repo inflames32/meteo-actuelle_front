@@ -1,12 +1,16 @@
 .container-city_name {
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   padding-top: 0.5em;
   align-items: center;
 }
+.container-city_name-country {
+  width: 50%;
+}
 
 .apiSuccess-container {
-  width: 450px;
+  width: 45vw;
   margin: auto;
   font-size: 18px;
   font-weight: 600;
@@ -19,9 +23,6 @@
 
 .useEffect_weather {
   padding-top: 1em;
-}
-.container-city_name-country {
-  margin: 0.5em;
 }
 
 .img-weather {

@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { Link } from "react-router-dom";
+import { AiOutlineClose, AiOutlineCloseSquare } from "react-icons/ai";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { openMenu, logout, closeMenu } from "../../store/actions";
@@ -33,10 +34,10 @@ const Header = ({
             Météo actuelle
           </Link>
           <Link to="/signup" className="header-container-create">
-            S'incrire
+            Inscription
           </Link>
           <Link to="/signin" className="header-container-login">
-            Se connecter
+            Connexion
           </Link>
           <a className="burger-menu" onClick={handleBurgerMenu}>
             |||
@@ -68,14 +69,14 @@ const Header = ({
           <div className="burger-menu-container">
             <nav className="burger-menu-navigation">
               <div className="close-menu" onClick={closeMenu}>
-                X
+                <AiOutlineClose />
               </div>
               <Link
                 to="/signup"
                 className="burger-menu-containe-create menu-item"
                 onClick={closeMenu}
               >
-                Créer ton compte?
+                Inscription
               </Link>
               <Link
                 to="/signin"
@@ -91,25 +92,6 @@ const Header = ({
               >
                 Contact
               </Link>
-              <div className="burger-menu-container-login menu-item menu-social">
-                <div className="icon">
-                  <div className="icon-socialsnetworks">
-                    <a href="https://www.linkedin.com/in/pierre-cahuzac-60b8491a4/">
-                      {/*  <GrLinkedin /> */}
-                    </a>
-                  </div>
-                  <div className="icon-socialsnetworks">
-                    <a href="https://github.com/inflames32">
-                      {/*            <GrGithub /> */}
-                    </a>
-                  </div>
-                  <div className="icon-socialsnetworks">
-                    <a href="https://www.twitch.tv/badtupeupastest">
-                      {/*  <FaTwitch /> */}
-                    </a>
-                  </div>
-                </div>
-              </div>
             </nav>
           </div>
         </CSSTransition>
@@ -118,7 +100,7 @@ const Header = ({
         <div className="burger-menu-container">
           <nav className="burger-menu-navigation">
             <div className="close-menu" onClick={closeMenu}>
-              X
+              <AiOutlineClose />
             </div>
             <Link to={url} className="burger-menu-container-login menu-item">
               {loginData.email}
@@ -137,19 +119,6 @@ const Header = ({
             >
               Contact
             </Link>
-            <div className="burger-menu-container-login menu-item menu-social">
-              <div className="icon">
-                <a href="https://www.linkedin.com/in/pierre-cahuzac-60b8491a4/">
-                  {/*  <GrLinkedin /> */}
-                </a>
-                <a href="https://github.com/inflames32">
-                  {/*  <GrGithub /> */}
-                </a>
-                <a href="https://www.twitch.tv/badtupeupastest">
-                  {/*    <FaTwitch /> */}
-                </a>
-              </div>
-            </div>
           </nav>
         </div>
       )}

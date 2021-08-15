@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
 .homepage-container {
   width: 100vw;
   min-height: 100vh;
@@ -5,7 +7,8 @@
   text-align: center;
 }
 .homepage-body {
-  min-height: 85vh;
+  font-family: "Lato", sans-serif;
+  min-height: 91vh;
   background-color: #c2ccd0;
 
   max-width: 80%;
@@ -32,7 +35,7 @@
     min-height: 100vh;
   }
   .homepage-body {
-    min-height: 85vh;
+    min-height: 91vh;
     max-height: auto;
   }
 }
@@ -42,7 +45,7 @@
     min-height: 100vh;
   }
   .homepage-body {
-    min-height: 85vh;
+    min-height: 91vh;
   }
 
   .exemple {

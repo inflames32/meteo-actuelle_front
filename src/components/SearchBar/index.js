@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import { BiSearch } from "react-icons/bi";
-
+import { MdGpsFixed } from "react-icons/md";
+import "../../styles/searchbar.scss";
 //import propTypes from "prop-types";
 import {
-  Button,
   InputGroup,
   Dropdown,
   FormControl,
@@ -16,25 +16,60 @@ import {
   inputCityChange,
   submit,
   chooseCountry,
-  submitCityInFrance,
+  submitFrance,
 } from "../../store/actions";
-import "../../styles/searchbar.scss";
 
 const SearchBar = ({
   loading,
   city,
   submitCitySearch,
+  submitFrance,
   onInputChange,
   messageError,
   messageSuccess,
   selectZone,
   choose,
 }) => {
+  const weatherInit = () => {
+    const success = (position) => {
+      this.getWeatherData(position.coords.latitude, position.coords.longitude);
+    };
+
+    const error = () => {
+      alert("Unable to retrieve location.");
+    };
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(success, error);
+    } else {
+      alert(
+        "Your browser does not support location tracking, or permission is denied."
+      );
+    }
+  };
+  const geolocalizationHandle = () => {
+    const success = (position) => {
+      this.getWeatherData(position.coords.latitude, position.coords.longitude);
+    };
+
+    const error = () => {
+      alert("Unable to retrieve location.");
+    };
+    console.log("je tente la géolocalisation");
+    //geolocalizationSubmit();
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(success, error);
+    } else {
+      alert(
+        "Your browser does not support location tracking, or permission is denied."
+      );
+    }
+  };
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    if (choose === "fr") {
-      submitCityInFrance();
-      console.log(submitCityInFrance);
+    if (choose === "france") {
+      submitFrance();
+      console.log(submitFrance);
     } else {
       submitCitySearch();
       console.log(submitCitySearch);
@@ -43,28 +78,26 @@ const SearchBar = ({
   const handleCountry = (evt) => {
     const worldZone = evt.target.value;
     selectZone(worldZone);
-    console.log(`j'ai choisi ---${evt.target.value}---`);
+    console.log(`j'ai choisi ---|${evt.target.value}|---`);
   };
   return (
     <div className="container-searchbar">
       <form className="form-input" action="GET" onSubmit={handleSubmit}>
-        {messageError && <div>message: {messageError}</div>}
-        {messageSuccess && <div>message: {messageSuccess}</div>}
         <div className="test">
+          <div className="select-country" value>
+            Vous cherchez :
+          </div>
           <select
             className="select other"
             name="country"
             value={choose}
             onChange={handleCountry}
           >
-            <option className="select-country" value>
-              --- Vous cherchez ---
-            </option>
             <option
               onChange={handleCountry}
               name="france"
-              value="fr"
-              defaultChecked
+              value="france"
+              //defaultChecked
             >
               En France
             </option>
@@ -72,31 +105,41 @@ const SearchBar = ({
               Dans le monde
             </option>
           </select>
-          <div>
-            <input
-              className="search-bar"
-              placeholder="Nom de la ville"
-              type="text"
-              value={city}
-              onChange={(evt) => {
-                onInputChange(evt.target.value);
-              }}
-              icon="search"
-            />
+
+          <div className="search-bar-container">
+            <div className="search-bar-full">
+              <input
+                className="search-bar"
+                placeholder="Nom de la ville"
+                type="text"
+                value={city}
+                onChange={(evt) => {
+                  onInputChange(evt.target.value);
+                }}
+              />
+            </div>
+
+            {/* <div className="search-bar-geolocalization" onClick={weatherInit}>
+              <MdGpsFixed className="search-bar-geolocalization-icon" />
+            </div> */}
           </div>
         </div>
         {loading ? (
-          <Button type="submit" className="container-button " loading>
+          <button type="submit" className="container-button " loading>
             ...chargement
-          </Button>
+          </button>
         ) : (
           !loading && (
-            <Button className="container-button " type="submit">
+            <button className="container-button " type="submit">
               <BiSearch />
-            </Button>
+            </button>
           )
         )}
       </form>
+      <div>
+        {messageError && <div>message: {messageError}</div>}
+        {messageSuccess && <div>message: {messageSuccess}</div>}
+      </div>
     </div>
   );
 };
@@ -127,9 +170,11 @@ const mapDispatch = (dispatch) => ({
   },
   submitCitySearch: () => {
     dispatch(submit());
+    console.log("ok pour le monde");
   },
-  submitCityInFrance: () => {
-    dispatch(submitCityInFrance());
+  submitFrance: () => {
+    dispatch(submitFrance());
+    console.log("ok pour la france");
   },
   selectZone: (selectZone) => {
     dispatch(chooseCountry(selectZone));

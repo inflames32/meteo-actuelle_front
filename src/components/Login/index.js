@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Button, FormControl } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import PropTypes from "prop-types";
 import Header from "../Header";
 import Footer from "../Footer";
@@ -33,69 +33,70 @@ const Login = ({
     <div className="login-container">
       <Header />
       <div className="login-body">
-        <h1 className="createAccount-title">Connexion à mon compte</h1>
-        <form className="login-form" onSubmit={handleSubmit}>
-          {!loadingLoginSubmit && (
-            <div className="login-body-input">
-              <FormControl
-                className="login-form-email"
-                type="email"
-                name="email"
-                value={loginData.email}
-                placeholder="email"
-                focus
-                onChange={formInputChange}
-              />
-              <FormControl
-                className="login-form-password"
-                type="password"
-                name="password"
-                autoComplete="off"
-                value={loginData.password}
-                placeholder="mot de passe"
-                focus
-                onChange={formInputChange}
-              />
-            </div>
-          )}
-          {loadingLoginSubmit && (
-            <div className="login-body-input">
-              <FormControl
-                className="login-form-email"
-                type="email"
-                name="email"
-                value={loginData.email}
-                placeholder="email"
-                focus
-                onChange={formInputChange}
-                disabled
-              />
-              <FormControl
-                className="login-form-password"
-                type="password"
-                name="password"
-                value={loginData.password}
-                placeholder="mot de passe"
-                focus
-                onChange={formInputChange}
-                disabled
-              />
-            </div>
-          )}
-          {!loadingLoginSubmit && (
-            <div className="login-body-button">
-              <Button type="submit">Je me connecte</Button>
-            </div>
-          )}
-          {loadingLoginSubmit && (
-            <div className="login-body-button">
-              <Button loading type="submit" className="login-body-button">
-                Je me connecte
-              </Button>
-            </div>
-          )}
-          {isLogged && <span>{message}</span>}
-        </form>
+        <h1 className="login-title">Connexion</h1>
+        <div>
+          <form className="login-form" onSubmit={handleSubmit}>
+            {!loadingLoginSubmit ? (
+              <div>
+                <input
+                  className="login-form-email"
+                  type="email"
+                  name="email"
+                  value={loginData.email}
+                  placeholder="email"
+                  focus
+                  onChange={formInputChange}
+                />
+                <input
+                  className="login-form-password"
+                  type="password"
+                  name="password"
+                  autoComplete="off"
+                  value={loginData.password}
+                  placeholder="mot de passe"
+                  focus
+                  onChange={formInputChange}
+                />
+              </div>
+            ) : (
+              <div>
+                <input
+                  className="login-form-email"
+                  type="email"
+                  name="email"
+                  value={loginData.email}
+                  placeholder="email"
+                  focus
+                  onChange={formInputChange}
+                  disabled
+                />
+                <input
+                  className="login-form-password"
+                  type="password"
+                  name="password"
+                  value={loginData.password}
+                  placeholder="mot de passe"
+                  focus
+                  onChange={formInputChange}
+                  disabled
+                />
+              </div>
+            )}
+            {!loadingLoginSubmit ? (
+              <div className="login-body-button">
+                <Button type="submit">Valider</Button>
+              </div>
+            ) : (
+              <div className="login-body-button">
+                <Button loading type="submit" className="login-body-button">
+                  Valider
+                </Button>
+              </div>
+            )}
+            {isLogged && <span>{message}</span>}
+            {message && <p className="message">{message}</p>}
+          </form>
+        </div>
       </div>
       <Footer />
     </div>

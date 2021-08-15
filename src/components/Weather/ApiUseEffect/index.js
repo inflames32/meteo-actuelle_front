@@ -36,10 +36,12 @@ const ApiUseEffect = ({
     <div className="apiSuccess-container">
       <div className="apiSuccess-container-button">
         <div className="container-city_name">
-          <span className="container-city_name-country">
-            <span className="today">{date}</span>
-            {APISuccessUseEffect.name} ({APISuccessUseEffect.sys.country})
-          </span>
+          <div className="container-city_name-country">
+            <div className="today">{date}</div>
+            <div className="city-country">
+              {APISuccessUseEffect.name} ({APISuccessUseEffect.sys.country})
+            </div>
+          </div>
           <div>
             <img src={flag} alt="country flag" />
           </div>

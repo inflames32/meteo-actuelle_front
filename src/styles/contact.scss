@@ -1,4 +1,4 @@
-.contact-container {
+.contact {
   width: 100vw;
   min-height: 100vh;
   max-height: auto;
@@ -8,7 +8,11 @@
   color: white;
 
   &-body {
-    height: 81vh;
+    padding-top: 9vh;
+    height: 91vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &-body-title {
@@ -16,28 +20,53 @@
     margin-bottom: 2em;
   }
 
-  &-body-card {
-    height: 60vh;
-    width: 80vh;
-    margin: auto;
+  &-card {
+    width: 75vw;
+    height: 35vh;
+
+    background-color: #598bad;
+    border-radius: 5px;
   }
 }
-
-.card {
-  width: 50%;
-  border: 1px, grey solid;
-  height: auto;
-  margin: auto;
-}
-
-img {
-  box-sizing: border-box;
-  max-width: 100%;
-}
-
-.div-icon {
+.contact-email {
   display: flex;
-  width: 20px;
+  text-align: center;
+  height: 50%;
+  justify-content: center;
+  &-icon {
+    display: flex;
+    align-items: center;
+  }
+}
+.contact-email-adresse {
+  display: flex;
+
+  align-items: center;
+}
+.contact-networks {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  &-icon {
+    display: flex;
+    width: 25%;
+    justify-content: center;
+  }
+}
+.svg {
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 400%;
+  color: white;
+}
+
+.svg:hover {
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 400%;
+  color: white;
+  box-shadow: #a1bfd3 2px 2px 2px;
+  transition: 0.3s;
 }
 
 .contact-email > a {
