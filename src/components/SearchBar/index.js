@@ -106,23 +106,19 @@ const SearchBar = ({
             </option>
           </select>
 
-          <div className="search-bar-container">
-            <div className="search-bar-full">
-              <input
-                className="search-bar"
-                placeholder="Nom de la ville"
-                type="text"
-                value={city}
-                onChange={(evt) => {
-                  onInputChange(evt.target.value);
-                }}
-              />
-            </div>
+          <input
+            className="search-bar"
+            placeholder="Nom de la ville"
+            type="text"
+            value={city}
+            onChange={(evt) => {
+              onInputChange(evt.target.value);
+            }}
+          />
 
-            {/* <div className="search-bar-geolocalization" onClick={weatherInit}>
+          {/* <div className="search-bar-geolocalization" onClick={weatherInit}>
               <MdGpsFixed className="search-bar-geolocalization-icon" />
             </div> */}
-          </div>
         </div>
         {loading ? (
           <button type="submit" className="container-button " loading>

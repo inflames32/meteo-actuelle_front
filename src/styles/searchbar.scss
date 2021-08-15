@@ -6,9 +6,6 @@
   padding-top: 2em;
 }
 .test {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
   width: 100%;
   padding-bottom: 20px;
 }
@@ -20,6 +17,9 @@
   justify-content: center;
 }
 
+.select-country {
+  height: 3em !important;
+}
 .select {
   width: 80%;
   margin: auto;
@@ -107,12 +107,17 @@
       align-items: center;
     }
   }
-
+  .search-bar-container {
+    width: 100%;
+  }
   .select {
     margin: auto;
     height: 3em !important;
-    width: 60vw !important;
+    width: 100% !important;
     margin-bottom: 1vh;
+  }
+  .select-country {
+    height: 3em !important;
   }
 
   .container-searchbar {

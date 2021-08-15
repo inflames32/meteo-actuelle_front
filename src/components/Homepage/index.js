@@ -21,7 +21,6 @@ const Homepage = ({ APISuccessUseEffectLoading }) => (
         </div>
       ) : (
         <div className="useEffect_weather">
-          <span className="exemple">Exemple de météo possible:</span>
           <ApiUseEffect />
         </div>
       )}
