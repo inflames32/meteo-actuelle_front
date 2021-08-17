@@ -1,4 +1,4 @@
-.header-container {
+.header {
   color: #d9e5ef !important ;
   text-align: center;
   background-color: #122229;
@@ -11,104 +11,31 @@
   position: fixed;
 }
 
-.header-container-create,
-.header-container-login {
-  width: 30%;
-  height: 2vh;
-  display: none;
-}
-
-.header-container-logout {
-  width: 10vw;
+.header-title {
+  width: 100%;
+  color: white !important;
+  font-size: 1.5em;
   height: 3em;
   line-height: 3em;
-  font-weight: bold;
-  font-size: 1.2em;
   display: inline-block;
-  margin-right: 3em !important;
-  border-radius: 1em !important;
+  text-decoration: none;
 }
-
-.header-container-title {
-  width: auto;
-  height: 6vh;
-  color: white;
+.header-title:hover {
+  width: 98%;
+  margin: auto;
+  color: white !important;
   font-size: 1.5em;
-  margin-left: 5vw;
-  text-decoration: none;
-}
-.header-container-title:hover {
-  text-decoration: none;
-}
-.header-container-myaccount {
-  display: none;
-}
-
-.burger-menu {
-  color: white;
-  width: 6vw;
-  height: 6vh;
-  line-height: 6vh;
-  transform: rotate(90deg) !important;
+  height: 5vh;
+  line-height: 5vh;
   display: inline-block;
-  margin-right: 20px;
-  font-size: 2em;
-  cursor: pointer;
-}
-
-.burger-menu:hover {
-  color: white;
-  width: 6vw;
-  height: 6vh;
-  line-height: 6vh;
-  transform: rotate(90deg) !important;
-  display: inline-block;
-  margin-right: 20px;
-  font-size: 2em;
-  cursor: pointer;
-}
-
-.menu-logout {
-  display: none;
-}
-
-.header-container-create,
-.header-container-login {
-  display: none;
-}
-
-.header-submenu > a {
-  color: white;
-  transition: 1s;
-  z-index: 5;
-  background-color: #122229;
-}
-.icon {
-  display: flex;
-}
-.icon:hover {
-  display: flex;
-}
-.icon-socialsnetworks {
-  display: flex;
-  flex: row;
-  width: 30%;
-  justify-content: space-around;
-  margin: auto;
-}
-.icon-socialsnetworks:hover {
-  display: flex;
-  flex: row;
-  width: 30%;
-  justify-content: space-around;
-  margin: auto;
+  text-decoration: none;
+  background-color: #85b7d9;
+  border-radius: 1em;
+  text-decoration: none;
 }
 
 @media screen and (min-width: 746px) {
-  .header-submenu {
-    display: none;
-  }
-  .header-container {
+  .header {
     color: #d9e5ef !important;
     background-color: #122229;
     display: flex;
@@ -119,20 +46,8 @@
     align-items: center;
   }
 
-  .burger-menu {
-    display: none;
-  }
-  .header-container-login {
-    margin-right: 5vw;
-  }
-
-  .header-container-title,
-  .header-container-create,
-  .header-container-login,
-  .header-container-myaccount,
-  .menu-logout {
-    width: 25%;
-    justify-content: space-evenly;
+  .header-title {
+    width: 98%;
     color: white !important;
     font-size: 1.5em;
     height: 3em;
@@ -141,54 +56,17 @@
     text-decoration: none;
   }
 
-  .header-container-create:hover,
-  .header-container-login:hover,
-  .header-container-myaccount:hover,
-  .header-container-title:hover {
+  .header-title:hover {
     width: 25%;
-    color: #122229 !important;
-    background-color: white;
-    border-radius: 1em;
-    height: 2.5em;
-    line-height: 2.5em;
-    font-weight: bold;
-    font-size: 1.2em;
-    display: inline-block;
-    justify-content: space-evenly;
-    text-decoration: none;
-    transition: 0.4s;
-  }
-  .header-container-title:hover {
-    background-color: #85b7d9;
-    width: 25%;
+    margin: auto;
     color: white !important;
-    border-radius: 1em;
-    height: 2.5em;
-    line-height: 2.5em;
-    font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1.5em;
+    height: 5vh;
+    line-height: 5vh;
     display: inline-block;
-    justify-content: space-evenly;
     text-decoration: none;
-  }
-  .header-container-logout {
-    width: 10vw;
-    height: 3em;
-    line-height: 3em;
-    font-weight: bold;
-    font-size: 1.2em;
-    display: inline-block;
-    margin-right: 3em !important;
-    border-radius: 1em !important;
-  }
-  .header-container-logout:hover {
-    width: 10vw;
-    height: 3em;
-    line-height: 3em;
-    font-weight: bold;
-    font-size: 1.2em;
-    display: inline-block;
-    margin-right: 3em !important;
-    border-radius: 1em !important;
+    background-color: #85b7d9;
+    border-radius: 1em;
+    text-decoration: none;
   }
 }

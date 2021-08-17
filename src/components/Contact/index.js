@@ -1,11 +1,8 @@
 import React from "react";
 import { FaTwitch, FaLinkedin, FaGithub } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
-import { Card, Button } from "react-bootstrap";
 import Header from "../Header";
 import Footer from "../Footer";
-
-import pierre from "../../assets/img/pierre.jpg";
 
 import "../../styles/contact.scss";
 

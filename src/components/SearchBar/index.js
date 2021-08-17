@@ -1,16 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import { BiSearch } from "react-icons/bi";
-import { MdGpsFixed } from "react-icons/md";
+
 import "../../styles/searchbar.scss";
 //import propTypes from "prop-types";
-import {
-  InputGroup,
-  Dropdown,
-  FormControl,
-  DropdownButton,
-  Spinner,
-} from "react-bootstrap";
 
 import {
   inputCityChange,
@@ -30,41 +23,6 @@ const SearchBar = ({
   selectZone,
   choose,
 }) => {
-  const weatherInit = () => {
-    const success = (position) => {
-      this.getWeatherData(position.coords.latitude, position.coords.longitude);
-    };
-
-    const error = () => {
-      alert("Unable to retrieve location.");
-    };
-
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(success, error);
-    } else {
-      alert(
-        "Your browser does not support location tracking, or permission is denied."
-      );
-    }
-  };
-  const geolocalizationHandle = () => {
-    const success = (position) => {
-      this.getWeatherData(position.coords.latitude, position.coords.longitude);
-    };
-
-    const error = () => {
-      alert("Unable to retrieve location.");
-    };
-    console.log("je tente la géolocalisation");
-    //geolocalizationSubmit();
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(success, error);
-    } else {
-      alert(
-        "Your browser does not support location tracking, or permission is denied."
-      );
-    }
-  };
   const handleSubmit = (evt) => {
     evt.preventDefault();
     if (choose === "france") {
@@ -84,9 +42,7 @@ const SearchBar = ({
     <div className="container-searchbar">
       <form className="form-input" action="GET" onSubmit={handleSubmit}>
         <div className="test">
-          <div className="select-country" value>
-            Vous cherchez :
-          </div>
+          <div className="select-country">Vous cherchez :</div>
           <select
             className="select other"
             name="country"
@@ -115,10 +71,6 @@ const SearchBar = ({
               onInputChange(evt.target.value);
             }}
           />
-
-          {/* <div className="search-bar-geolocalization" onClick={weatherInit}>
-              <MdGpsFixed className="search-bar-geolocalization-icon" />
-            </div> */}
         </div>
         {loading ? (
           <button type="submit" className="container-button " loading>

@@ -1,26 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { HeartOutlined, HeartFilled, DeleteOutlined } from "@ant-design/icons";
-
 import { DateTime } from "luxon";
-import {
-  selectUnit,
-  addFollowed,
-  removeFollowed,
-  deleteCityOnClick,
-} from "../../../store/actions";
+import { selectUnit } from "../../../store/actions";
 
 import "../../../styles/ApiSuccess.scss";
 
-const ApiSuccess = ({
-  API,
-  units,
-  selectUnit,
-  followed,
-  addFollowed,
-  removeFollowed,
-  deleteCityOnClick,
-}) => {
+const ApiSuccess = ({ API }) => {
   var dt = DateTime.now();
   var f = { month: "long", day: "numeric", year: "numeric" };
   var date = dt.setLocale("fr").toLocaleString(f);
@@ -29,11 +14,6 @@ const ApiSuccess = ({
   const windInKmByHour = Math.trunc(API.wind.speed * 3.6);
   const weatherIcon = `http://openweathermap.org/img/wn/${API.weather[0].icon}@2x.png`;
   const flag = `https://www.countryflags.io/${API.sys.country}/flat/64.png`;
-  const handleBtnTrash = () => {
-    console.log(DateTime);
-    console.log("je supprime cette ville");
-    deleteCityOnClick();
-  };
 
   return (
     <div className="apiSuccess-container">
@@ -75,21 +55,6 @@ const ApiSuccess = ({
           Visibilité: {API.visibility} m
         </div>
       </details>
-      {/*    <div className="container-follow">
-        {!followed && (
-          <div className="container-heart" onClick={addFollowed}>
-            <HeartOutlined />
-          </div>
-        )}
-        {followed && (
-          <div className="container-heart" onClick={removeFollowed}>
-            <HeartFilled />
-          </div>
-        )}
-        <div className="container-trash" onClick={handleBtnTrash}>
-          <DeleteOutlined />
-        </div>
-      </div> */}
     </div>
   );
 };
@@ -101,24 +66,11 @@ const mapState = (state) => ({
   API: state.user.API,
   loading: state.user.loading,
   apiSuccess: state.user.apiSuccess,
-  followed: state.user.followed,
 });
 
 const mapDispatch = (dispatch) => ({
   selectUnit: (units) => {
     dispatch(selectUnit(units));
-  },
-
-  addFollowed: () => {
-    dispatch(addFollowed());
-  },
-
-  removeFollowed: () => {
-    dispatch(removeFollowed());
-  },
-
-  deleteCityOnClick: () => {
-    dispatch(deleteCityOnClick());
   },
 });
 

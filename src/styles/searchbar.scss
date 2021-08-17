@@ -18,7 +18,9 @@
 }
 
 .select-country {
-  height: 3em !important;
+  height: 3em;
+  font-size: x-large;
+  line-height: 3em;
 }
 .select {
   width: 80%;
@@ -116,8 +118,11 @@
     width: 100% !important;
     margin-bottom: 1vh;
   }
+
   .select-country {
-    height: 3em !important;
+    height: 3em;
+    line-height: 3em;
+    font-size: x-large;
   }
 
   .container-searchbar {

@@ -5,69 +5,27 @@ import {
   GEOLOCALIZATION_HANDLE,
   SUBMIT_SUCCESS,
   SUBMIT_ERROR,
-  ON_FORM_LOGIN_ERROR,
-  ON_FORM_LOGIN_SUCCESS,
   ON_INPUT_CHANGE,
   SELECT_UNIT,
-  ADDFOLLOWED,
-  REMOVEFOLLOWED,
-  ONCREATEACCOUNTINPUTCHANGE,
-  SUBMITCREATEACCOUNTFORM,
-  SUBMITCREATEACCOUNTFORMSUCCESS,
-  SUBMITCREATEACCOUNTFORMERROR,
-  ON_FORM_LOGIN,
-  OPEN_MENU,
-  CLOSE_MENU,
-  LOGOUT,
-  LOGOUT_SUCCESS,
-  LOGOUT_ERROR,
   CHOOSE_COUNTRY,
-  DELETE_CITY_ON_CLICK,
-  API_USE_EFFECT_SUCCESS,
-  API_USE_EFFECT_ERROR,
+  ON_CLICK_HOME_BTN,
 } from "../actions";
 
 const initialState = {
-  citiesByDefault: "Helsinki" /* {
-    city: "Paris",
-    choose: "&,fr",
-  }, */,
-  /*    {
-      id: "2",
-      city: "Londres",
-      choose: "",
-    },
-     */
   coordonates: {
     lat: "",
     lon: "",
   },
-  menuIsOpen: false,
   propIn: false,
-  createAccount: {
-    email: "",
-    password: "",
-    password_confirmation: "",
-  },
-  followed: false,
-  isLogged: false,
   loadingLoginSubmit: false,
   loading: false,
   city: "",
   zipCode: "",
-  // countryCode: "fr",
   units: "metric",
   API: {},
-  messageSuccess: "",
-  messageError: "",
   lang: "fr",
   apiSuccess: false,
   message: "",
-  loginData: {
-    email: "",
-    password: "",
-    id: "",
-  },
   weatherAPI: "",
   choose: "france",
   APISuccessUseEffect: {},
@@ -76,105 +34,17 @@ const initialState = {
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
-    case API_USE_EFFECT_SUCCESS:
+    case ON_CLICK_HOME_BTN:
       return {
         ...state,
-        APISuccessUseEffect: {
-          ...state.APISuccessUseEffect,
-          ...action.payload,
-        },
-        APISuccessUseEffectLoading: false,
+        city: "",
+        choose: "france",
       };
 
     case CHOOSE_COUNTRY:
       return {
         ...state,
         choose: action.payload,
-      };
-
-    case OPEN_MENU:
-      return {
-        ...state,
-        menuIsOpen: true,
-      };
-
-    case CLOSE_MENU:
-      return {
-        ...state,
-        menuIsOpen: false,
-        inProp: false,
-      };
-
-    case LOGOUT:
-      return {
-        ...state,
-        message: "Déconnexion en cours...",
-      };
-
-    case LOGOUT_SUCCESS:
-      return {
-        ...state,
-        message: "Déconnexion réussie",
-        isLogged: false,
-        loginData: {
-          email: "",
-          password: "",
-          id: "",
-        },
-      };
-
-    case LOGOUT_ERROR:
-      return {
-        ...state,
-        message: "Erreur de déconnexion",
-        isLogged: true,
-      };
-
-    case ONCREATEACCOUNTINPUTCHANGE:
-      return {
-        ...state,
-        createAccount: {
-          ...state.createAccount,
-          ...action.payload,
-        },
-      };
-
-    case SUBMITCREATEACCOUNTFORM:
-      return {
-        ...state,
-        loading: true,
-      };
-
-    case SUBMITCREATEACCOUNTFORMSUCCESS:
-      return {
-        ...state,
-        loading: false,
-        message: "Compte crée avec succès!",
-      };
-
-    case SUBMITCREATEACCOUNTFORMERROR:
-      return {
-        ...state,
-        loading: false,
-        message: "Impossible de créer le compte",
-      };
-
-    case ADDFOLLOWED:
-      return {
-        ...state,
-        followed: true,
-      };
-
-    case REMOVEFOLLOWED:
-      return {
-        ...state,
-        followed: !state.followed,
-      };
-
-    case DELETE_CITY_ON_CLICK:
-      return {
-        ...state,
-        API: {},
       };
 
     case SELECT_UNIT:
@@ -199,15 +69,6 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         loading: true,
-      };
-
-    case GEOLOCALIZATION_HANDLE:
-      return {
-        ...state,
-        loading: true,
-        coordonates: {
-          ...state.payload,
-        },
       };
 
     case SUBMIT_SUCCESS:
@@ -236,33 +97,6 @@ export default (state = initialState, action = {}) => {
           ...action.payload,
         },
         isLogged: false,
-      };
-
-    case ON_FORM_LOGIN:
-      return {
-        ...state,
-        loadingLoginSubmit: true,
-      };
-
-    case ON_FORM_LOGIN_ERROR:
-      return {
-        ...state,
-        loadingLoginSubmit: false,
-        userId: "",
-        isLogged: false,
-        message: "Erreur de connexion à votre compte",
-      };
-
-    case ON_FORM_LOGIN_SUCCESS:
-      return {
-        ...state,
-        loadingLoginSubmit: false,
-        isLogged: true,
-        loginData: {
-          ...state.loginData,
-          id: action.payload,
-        },
-        message: "Vous êtes connecté",
       };
 
     default:
