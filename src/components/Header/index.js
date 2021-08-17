@@ -3,9 +3,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import "../../styles/header.scss";
-import "../../styles/burger-menu.scss";
 
-const Header = ({ onClickHomeBTN }) => {
+const Header = () => {
   return (
     <div className="header">
       <Link to="/" className="header-title">
