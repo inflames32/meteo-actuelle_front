@@ -8,7 +8,6 @@
   color: white;
 
   &-body {
-    padding-top: 9vh;
     height: 85vh;
     display: flex;
     justify-content: center;
@@ -108,50 +107,4 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-@media only screen and (max-width: 750px) {
-  /* Styles */
-  .contact-container {
-    height: 100vh;
-    &-body {
-      width: 80%;
-      margin: auto;
-      height: 85vh;
-    }
-    &-body-card {
-      padding-top: 10em;
-      margin: auto;
-      width: 80vw;
-    }
-
-    &-body-title {
-      margin-bottom: 3vh;
-    }
-  }
-
-  .card {
-    width: 40vw;
-    margin: auto;
-  }
-}
-
-@media screen and (max-width: 650px) {
-  .contact-container {
-    min-height: 100vh;
-    max-height: 100vh;
-    &-body {
-      height: 85vh;
-      &-card {
-        padding-top: 10vh;
-      }
-    }
-  }
-  .card {
-    width: 60vw;
-    margin: auto;
-  }
-  .icon {
-    width: 40px;
-  }
 }
