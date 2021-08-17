@@ -17,7 +17,7 @@ const submitCity = (store) => (next) => (action) => {
   switch (action.type) {
     // submit in world
     case SUBMIT_WORLD: {
-      console.log("je submit en dans le monde");
+      //console.log("je submit en dans le monde");
       axios({
         method: "get",
         /*         url: `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=${unity}&appid=${API_KEY}&lang=${language}`, */

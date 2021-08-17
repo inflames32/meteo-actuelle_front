@@ -69,8 +69,8 @@ const CreateAccount = ({
               <input
                 className="createaccount-form-password_confirm"
                 type="password"
-                name="passwordConfirm"
-                value={createAccount.passwordConfirm}
+                name="password_confirmation"
+                value={createAccount.password_confirmation}
                 placeholder="Confirmation du mot de passe (obligatoire)"
                 focus
                 onChange={handleInputChange}
@@ -92,7 +92,7 @@ const CreateAccount = ({
 const mapState = (state) => ({
   createAccount: state.user.createAccount,
   password: state.user.createAccount.password,
-  passwordConfirm: state.user.createAccount.passwordConfirm,
+  password_confirmation: state.user.createAccount.password_confirmation,
   message: state.user.message,
 });
 
@@ -102,7 +102,6 @@ const mapDispatch = (dispatch) => ({
   },
 
   submitCreateAccountForm: () => {
-    // console.log('je submit le formulaire de création');
     dispatch(submitCreateAccountForm());
   },
 });

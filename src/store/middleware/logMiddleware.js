@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 import {
   ON_FORM_LOGIN,
@@ -9,60 +9,70 @@ import {
   SUBMITCREATEACCOUNTFORM,
   LOGOUT,
   logoutSuccess,
-} from '../actions';
-
+} from "../actions";
+const url = "http://localhost:3001";
 const logMiddleware = (store) => (next) => (action) => {
   next(action);
   switch (action.type) {
     case SUBMITCREATEACCOUNTFORM: {
-      const url = process.env.REACT_APP_URL;
+      //const url = process.env.REACT_APP_URL;
       axios({
-        method: 'post',
+        method: "post",
         url: `${url}/signup`,
         data: store.getState().user.createAccount,
-        withCredentials: true,
-      }).then((res) => {
-        //console.log(res.data, 'compte crée avec succès');
-        store.dispatch(submitCreateAccountFormSuccess(res.data));
-      }).catch((error) => {
-        //console.log(error, 'une erreur c\'est produite');
-        store.dispatch(submitCreateAccountFormError(error));
-      });
+        //withCredentials: true,
+      })
+        .then((res) => {
+          store.dispatch(submitCreateAccountFormSuccess(res.data));
+        })
+        .catch((error) => {
+          store.dispatch(submitCreateAccountFormError(error));
+        });
       break;
     }
 
     case ON_FORM_LOGIN: {
-      const url = process.env.REACT_APP_URL;
+      //const url = process.env.REACT_APP_URL;
 
       const data = store.getState().user.loginData;
       axios({
-        method: 'post',
+        method: "post",
         url: `${url}/login`,
         data,
         withCredentials: true,
-      }).then((res) => {
-        if (res.data === 'cant find user with this id') {
-          store.dispatch(onFormLoginError("E-mail and password doesn't matchs"));
-        }
-        else {
-          store.dispatch(onFormLoginSuccess(res.data.info.id, res.data.info.email, 'vous êtes connecté'));
-        }
-      }).catch((err) => {
-        store.dispatch(onFormLoginError(err, 'utilisateur inconnu'));
-      });
+      })
+        .then((res) => {
+          if (res.data === "cant find user") {
+            store.dispatch(
+              onFormLoginError("E-mail and password doesn't matchs")
+            );
+          } else {
+            store.dispatch(
+              onFormLoginSuccess(
+                res.data.info.id,
+                res.data.info.email,
+                "vous êtes connecté"
+              )
+            );
+          }
+        })
+        .catch((err) => {
+          store.dispatch(onFormLoginError(err, "utilisateur inconnu"));
+        });
       break;
     }
 
     case LOGOUT: {
       //const url = process.env.REACT_APP_URL_DEV;
-      const url = process.env.REACT_APP_URL_PROD;
+      //const url = process.env.REACT_APP_URL_PROD;
       axios({
-        method: 'post',
+        method: "post",
         url: `${url}/logout`,
-      }).then((res) => {
-        //console.log(res.data);
-        store.dispatch(logoutSuccess());
       })
+        .then((res) => {
+          //console.log(res.data);
+          store.dispatch(logoutSuccess());
+        })
         .catch((err) => {
           console.error(err);
         });

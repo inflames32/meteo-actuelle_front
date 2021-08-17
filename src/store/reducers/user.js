@@ -47,7 +47,7 @@ const initialState = {
   createAccount: {
     email: "",
     password: "",
-    passwordConfirm: "",
+    password_confirmation: "",
   },
   followed: false,
   isLogged: false,
