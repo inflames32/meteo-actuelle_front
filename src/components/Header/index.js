@@ -4,25 +4,18 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import "../../styles/header.scss";
 import "../../styles/burger-menu.scss";
-import { onClickHomeBTN } from "../../store/actions";
-const Header = ({ onClickHomeBTN }) => {
-  const handleHomeBTN = () => {
-    onClickHomeBTN();
-  };
 
+const Header = ({ onClickHomeBTN }) => {
   return (
     <div className="header">
-      <Link to="/" className="header-title" onClick={handleHomeBTN}>
+      <Link to="/" className="header-title">
         Météo actuelle
       </Link>
     </div>
   );
 };
 
-const mapState = (state) => ({
-  city: state.user.city,
-  choose: state.user.choose,
-});
+const mapState = (state) => ({});
 
 const mapDispatch = (dispatch) => ({});
 

@@ -2,13 +2,11 @@ import {
   INPUT_CITY_CHANGE,
   SUBMIT_WORLD,
   SUBMIT_FRANCE,
-  GEOLOCALIZATION_HANDLE,
   SUBMIT_SUCCESS,
   SUBMIT_ERROR,
   ON_INPUT_CHANGE,
   SELECT_UNIT,
   CHOOSE_COUNTRY,
-  ON_CLICK_HOME_BTN,
 } from "../actions";
 
 const initialState = {
@@ -34,13 +32,6 @@ const initialState = {
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
-    case ON_CLICK_HOME_BTN:
-      return {
-        ...state,
-        city: "",
-        choose: "france",
-      };
-
     case CHOOSE_COUNTRY:
       return {
         ...state,

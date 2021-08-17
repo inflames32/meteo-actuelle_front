@@ -4,18 +4,12 @@ export const SUBMIT_SUCCESS = "SUBMIT_SUCCESS";
 export const SUBMIT_ERROR = "SUBMIT_ERROR";
 export const SELECT_UNIT = "SELECT_UNIT";
 
-export const ON_CLICK_HOME_BTN = "ON_CLICK_HOME_BTN";
-
 // = choix du pays
 export const CHOOSE_COUNTRY = "CHOOSE_COUNTRY";
 // = Submit en France
 export const SUBMIT_FRANCE = "SUBMIT_FRANCE";
 // =Submit dans le monde
 export const SUBMIT_WORLD = "SUBMIT_WORLD";
-
-export const onClickHomeBTN = () => ({
-  type: ON_CLICK_HOME_BTN,
-});
 
 export const chooseCountry = (payload) => ({
   type: CHOOSE_COUNTRY,

@@ -30,15 +30,11 @@ const submitCity = (store) => (next) => (action) => {
     }
     // submit in France
     case SUBMIT_FRANCE: {
-      console.log("je submit en france");
       axios({
         method: "get",
         url: `https://api.openweathermap.org/data/2.5/weather?q=${cityName},fr&units=${unity}&appid=${API_KEY}&lang=${language}`,
       })
         .then((res) => {
-          console.log("---resultat---", res, res.data);
-
-          console.log(res.config.url);
           store.dispatch(submitSuccess(res.data));
         })
         .catch((err) => {
@@ -49,5 +45,4 @@ const submitCity = (store) => (next) => (action) => {
     default:
   }
 };
-
 export default submitCity;

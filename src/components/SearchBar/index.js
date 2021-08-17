@@ -27,16 +27,13 @@ const SearchBar = ({
     evt.preventDefault();
     if (choose === "france") {
       submitFrance();
-      console.log(submitFrance);
     } else {
       submitCitySearch();
-      console.log(submitCitySearch);
     }
   };
   const handleCountry = (evt) => {
     const worldZone = evt.target.value;
     selectZone(worldZone);
-    console.log(`j'ai choisi ---|${evt.target.value}|---`);
   };
   return (
     <div className="container-searchbar">
@@ -118,11 +115,9 @@ const mapDispatch = (dispatch) => ({
   },
   submitCitySearch: () => {
     dispatch(submit());
-    console.log("ok pour le monde");
   },
   submitFrance: () => {
     dispatch(submitFrance());
-    console.log("ok pour la france");
   },
   selectZone: (selectZone) => {
     dispatch(chooseCountry(selectZone));
