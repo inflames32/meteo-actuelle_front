@@ -74,11 +74,9 @@ const SearchBar = ({
             ...chargement
           </button>
         ) : (
-          !loading && (
-            <button className="container-button " type="submit">
-              <BiSearch />
-            </button>
-          )
+          <button className="container-button " type="submit">
+            <BiSearch />
+          </button>
         )}
       </form>
       <div>

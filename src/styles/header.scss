@@ -20,17 +20,17 @@
   text-decoration: none;
 }
 .header-title:hover {
-  width: 98%;
+  /* width: 98%;
   margin: auto;
   color: white !important;
   font-size: 1.5em;
   height: 5vh;
   line-height: 5vh;
-  display: inline-block;
+  display: inline-block; */
   text-decoration: none;
-  background-color: #85b7d9;
+  /*  background-color: #85b7d9;
   border-radius: 1em;
-  text-decoration: none;
+  text-decoration: none; */
 }
 
 @media screen and (min-width: 746px) {
@@ -56,16 +56,16 @@
   }
 
   .header-title:hover {
-    width: 25%;
+    /* width: 25%;
     margin: auto;
     color: white !important;
     font-size: 1.5em;
     height: 5vh;
     line-height: 5vh;
-    display: inline-block;
+    display: inline-block; */
     text-decoration: none;
-    background-color: #85b7d9;
+    /* background-color: #85b7d9;
     border-radius: 1em;
-    text-decoration: none;
+    text-decoration: none; */
   }
 }

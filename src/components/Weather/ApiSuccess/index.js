@@ -13,7 +13,10 @@ const ApiSuccess = ({ API }) => {
   const tempFeel = API.main.feels_like.toFixed(1);
   const windInKmByHour = Math.trunc(API.wind.speed * 3.6);
   const weatherIcon = `http://openweathermap.org/img/wn/${API.weather[0].icon}@2x.png`;
-  const flag = `https://www.countryflags.io/${API.sys.country}/flat/64.png`;
+  //const flag = `https://www.countryflags.io/${API.sys.country}/flat/64.png`;
+  const APIsysCountryToLower = API.sys.country;
+  const APICountry = APIsysCountryToLower.toLowerCase();
+  const flag = `https://flagcdn.com/w80/${APICountry}.png `;
 
   return (
     <div className="apiSuccess-container">
@@ -22,10 +25,10 @@ const ApiSuccess = ({ API }) => {
         <div className="container-city_name">
           <span className="container-city_name-country">
             <span className="today">{date}</span>
-            {API.name} ({API.sys.country})
+            {API.name} ({APICountry})
           </span>
           <div>
-            <img src={flag} alt="country flag" className="flag" />
+            <img src={flag} alt={APICountry} className="flag" />
           </div>
         </div>
       </div>
