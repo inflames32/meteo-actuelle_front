@@ -13,6 +13,7 @@
     "dotenv-webpack": "^7.0.1",
     "luxon": "^2.0.1",
     "netlify-cli": "^6.0.8",
+    "normalize.css": "^8.0.1",
     "react": "^17.0.1",
     "react-bootstrap": "^1.5.1",
     "react-dom": "^17.0.1",
@@ -24,6 +25,7 @@
     "redux": "^4.0.5",
     "sass": "^1.32.8",
     "semantic-ui-react": "^2.0.3",
+    "styled-components": "^5.3.3",
     "web-vitals": "^1.0.1"
   },
   "scripts": {

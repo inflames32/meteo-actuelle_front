@@ -1,6 +1,7 @@
 import React from "react";
 import { connect, Provider } from "react-redux";
 import { Route, Switch } from "react-router-dom";
+import Normalize from "normalize.css";
 
 // == Import components
 import Homepage from "../Homepage";
@@ -11,9 +12,8 @@ import Error404 from "../error404";
 
 import store from "../../store";
 
-import "../../styles/_reset.css";
+//import "../../styles/normalize.css";
 import "../../styles/App.scss";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 //require("dotenv").config();
 // == Composant

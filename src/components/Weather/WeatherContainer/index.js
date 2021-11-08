@@ -2,10 +2,11 @@ import React from "react";
 import { connect } from "react-redux";
 import { DateTime } from "luxon";
 import { selectUnit } from "../../../store/actions";
-
 import "../../../styles/ApiSuccess.scss";
+import breakpoint from "../../../Commons/breakpoint";
+import styled from "styled-components";
 
-const ApiSuccess = ({ API }) => {
+const WeatherContainer = ({ API }) => {
   var dt = DateTime.now();
   var f = { month: "long", day: "numeric", year: "numeric" };
   var date = dt.setLocale("fr").toLocaleString(f);
@@ -18,9 +19,13 @@ const ApiSuccess = ({ API }) => {
   const APICountry = APIsysCountryToLower.toLowerCase();
   const flag = `https://flagcdn.com/w80/${APICountry}.png `;
 
+  const ApiSuccessContainer = styled.div`
+    width: 100%;
+    height: 100%;
+  `;
+
   return (
-    <div className="apiSuccess-container">
-      <p>{}</p>
+    <ApiSuccessContainer>
       <div className="apiSuccess-container-button">
         <div className="container-city_name">
           <span className="container-city_name-country">
@@ -58,7 +63,7 @@ const ApiSuccess = ({ API }) => {
           Visibilité: {API.visibility} m
         </div>
       </details>
-    </div>
+    </ApiSuccessContainer>
   );
 };
 
@@ -77,4 +82,4 @@ const mapDispatch = (dispatch) => ({
   },
 });
 
-export default connect(mapState, mapDispatch)(ApiSuccess);
+export default connect(mapState, mapDispatch)(WeatherContainer);
