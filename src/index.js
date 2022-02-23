@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
 // == Import : local
 // Composants
-import App from "./components/App";
+import App from "../src/components/App";
 // Store
 import store from "./store";
 

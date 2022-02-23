@@ -9,8 +9,6 @@ import {
 import Header from "../Header";
 import Footer from "../Footer";
 
-import "../../styles/user.scss";
-
 const User = () => (
   <div className="user-container">
     <Header />

@@ -1,9 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { BiSearch } from "react-icons/bi";
-//import "../../styles/searchbar.scss";
-import breakpoint from "../../Commons/breakpoint";
-import styled from "styled-components";
 
 import {
   inputCityChange,
@@ -11,54 +7,6 @@ import {
   chooseCountry,
   submitFrance,
 } from "../../store/actions";
-
-const Select = styled.select`
-  width: 200px;
-  border: none;
-  border-radius: 5px;
-  height: 50px;
-  font-family: "Calibri", sans-serif;
-  font-size: 1.4rem;
-  text-align: center;
-  background-color: lightgrey;
-`;
-const Option = styled.option`
-  width: 200px;
-  border: none;
-  border-radius: 5px;
-  height: 50px;
-  font-family: "Calibri", sans-serif;
-  font-size: 1.4rem;
-  text-align: center;
-  background-color: lightgrey;
-`;
-
-const Input = styled.input`
-  width: 200px;
-  border: none;
-  border-radius: 5px;
-  height: 50px;
-  text-align: center;
-  background-color: lightgrey;
-`;
-
-const ButtonSubmit = styled.button.attrs({
-  type: "submit",
-})`
-  width: 200px;
-  display: inline-block;
-  border: none;
-  border-radius: 5px;
-  height: 50px;
-`;
-
-const SearchbarContainer = styled.div`
-  width: 800px;
-  height: 50px;
-  line-height: 50px;
-  justify-content: space-between;
-  display: flex;
-`;
 
 const SearchBar = ({
   loading,
@@ -84,30 +32,39 @@ const SearchBar = ({
     selectZone(worldZone);
   };
   return (
-    <SearchbarContainer>
-      <form className="form-input" action="GET" onSubmit={handleSubmit}>
-        {/* <div className="test"> */}
-        <Select
-          className="select other"
+    <div className="flex w-full justify-center items-center font-sans">
+      <form
+        className="w-full md:w-4/5 text-2xl flex flex-col md:flex-row justify-center items-center"
+        action="GET"
+        onSubmit={handleSubmit}
+      >
+        <select
+          className="w-full rounded-md  text-center m-1"
           name="country"
           value={choose}
           onChange={handleCountry}
         >
-          <Option
+          <option
+            className="w-full rounded-md  text-center mx-1"
             onChange={handleCountry}
             name="france"
             value="france"
             defaultChecked
           >
             En France
-          </Option>
-          <Option onChange={handleCountry} name="monde" value="world">
+          </option>
+          <option
+            className="w-full rounded-md  text-center mx-1"
+            onChange={handleCountry}
+            name="monde"
+            value="world"
+          >
             Dans le monde
-          </Option>
-        </Select>
+          </option>
+        </select>
 
-        <Input
-          className="search-bar"
+        <input
+          className="w-full rounded-md text-center mx-1"
           placeholder="Nom de la ville"
           type="text"
           value={city}
@@ -120,9 +77,7 @@ const SearchBar = ({
             ...chargement
           </button>
           ) : ( */}
-        <ButtonSubmit>
-          <BiSearch />
-        </ButtonSubmit>
+
         {/*   )} */}
         {/*  </div> */}
         {/* {(!city && !loading) ||
@@ -148,7 +103,7 @@ const SearchBar = ({
         {messageError && <div>message: {messageError}</div>}
         {messageSuccess && <div>message: {messageSuccess}</div>}
       </div>
-    </SearchbarContainer>
+    </div>
   );
 };
 

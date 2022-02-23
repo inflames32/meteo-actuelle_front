@@ -4,8 +4,6 @@ import { AiOutlineMail } from "react-icons/ai";
 import Header from "../Header";
 import Footer from "../Footer";
 
-import "../../styles/contact.scss";
-
 const Contact = () => (
   <div className="contact">
     <Header />

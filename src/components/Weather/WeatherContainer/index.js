@@ -2,9 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import { DateTime } from "luxon";
 import { selectUnit } from "../../../store/actions";
-import "../../../styles/ApiSuccess.scss";
-import breakpoint from "../../../Commons/breakpoint";
-import styled from "styled-components";
 
 const WeatherContainer = ({ API }) => {
   var dt = DateTime.now();
@@ -19,51 +16,53 @@ const WeatherContainer = ({ API }) => {
   const APICountry = APIsysCountryToLower.toLowerCase();
   const flag = `https://flagcdn.com/w80/${APICountry}.png `;
 
-  const ApiSuccessContainer = styled.div`
-    width: 100%;
-    height: 100%;
-  `;
-
   return (
-    <ApiSuccessContainer>
-      <div className="apiSuccess-container-button">
-        <div className="container-city_name">
-          <span className="container-city_name-country">
+    <div
+      className="xs:w-full flex xs:flex-col text-xl 
+    md:flex-row md:w-10/12 m-2 justify-center 
+    bg-white items-center
+    xs:h-full 
+    sm:h-full 
+    md:h-1/2 
+    rounded-xl    
+    pt-16  
+  "
+    >
+      <div className="flex flex-col xs:w-full sm:w-4/12">
+        <div className="bg-green-200 flex w-full xs:w-full flex-col items-center justify-center">
+          <div className="bg-green-200 flex w-full flex-col items-center justify-center">
             <span className="today">{date}</span>
             {API.name} ({APICountry})
-          </span>
-          <div>
-            <img src={flag} alt={APICountry} className="flag" />
+          </div>
+          <img src={flag} alt={APICountry} className="flag" />
+          <div className="">
+            <img className="" src={weatherIcon} alt="icon_weather" />
+          </div>
+          <div className=" bg-gray-400">
+            {temp}
+            <span>°C</span>
           </div>
         </div>
       </div>
 
-      <div className="container-temp">
-        <div className="container-temp-icon">
-          <img className="img-weather" src={weatherIcon} alt="icon_weather" />
-        </div>
-
-        <div className="container-temp-temp">
-          {temp}
-          <span>°C</span>
-        </div>
-      </div>
-      <details>
-        <div className="container-temp_feel">
+      <div className="flex h-full  xs:flex-row bg-gray-200 w-full justify-center flex-wrap ">
+        <div className="w-8/12 bg-white rounded-xl">
           Température ressentie: {tempFeel} °C
         </div>
-        <div className="container-city_cloud">
+        <div className="w-8/12 bg-white rounded-xl">
           Couverture nuageuse: {API.weather[0].description}, {API.clouds.all} %
         </div>
-        <div className="container-city_humidity">
+        <div className="w-8/12 bg-white rounded-xl">
           Humidité: {API.main.humidity} %
         </div>
-        <div className="container-city_wind">Vent: {windInKmByHour} Km/h</div>
-        <div className="container-city_visibility">
+        <div className="w-8/12 bg-white rounded-xl">
+          Vent: {windInKmByHour} Km/h
+        </div>
+        <div className="w-8/12 bg-white rounded-xl">
           Visibilité: {API.visibility} m
         </div>
-      </details>
-    </ApiSuccessContainer>
+      </div>
+    </div>
   );
 };
 

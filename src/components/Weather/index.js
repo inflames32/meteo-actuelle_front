@@ -1,39 +1,20 @@
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import ApiSuccess from "./WeatherContainer";
-
-import "../../styles/weather.scss";
-import breakpoint from "../../Commons/breakpoint";
-import styled from "styled-components";
-const WeatherContainer = styled.div`
-  @media only screen and ${breakpoint.device.xs} {
-    width: 600px;
-    height: 800px;
-    background-color: grey;
-    text-align: center;
-    text-decoration: none;
-  }
-  @media only screen and ${breakpoint.device.sm} {
-    width: 600px;
-    height: 800px;
-    background-color: grey;
-    text-align: center;
-    text-decoration: none;
-  }
-  @media only screen and ${breakpoint.device.lg} {
-    width: 100%;
-    height: 500px;
-    background-color: grey;
-    text-align: center;
-    text-decoration: none;
-  }
-`;
+import WeatherContainer from "./WeatherContainer";
 
 const Weather = ({ apiSuccess }) => {
   return (
-    <div className="container-weather">
-      <WeatherContainer>{apiSuccess && <ApiSuccess />}</WeatherContainer>
+    <div className="flex justify-center items-center w-full h-full">
+      {apiSuccess ? (
+        <WeatherContainer />
+      ) : (
+        <div className="flex w-10/12 h-full items-center justify-center text-4xl">
+          <span className="flex bg-white w-10/12 h-1/2 items-center justify-center text-4xl rounded-2xl shadow-xl ">
+            En attente d'une ville à rechercher
+          </span>
+        </div>
+      )}
     </div>
   );
 };

@@ -4,16 +4,19 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.5.0",
+    "@craco/craco": "^6.4.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "antd": "^4.13.1",
+    "autoprefixer": "^9",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "dotenv-webpack": "^7.0.1",
     "luxon": "^2.0.1",
     "netlify-cli": "^6.0.8",
     "normalize.css": "^8.0.1",
+    "postcss": "^7",
     "react": "^17.0.1",
     "react-bootstrap": "^1.5.1",
     "react-dom": "^17.0.1",
@@ -26,12 +29,13 @@
     "sass": "^1.32.8",
     "semantic-ui-react": "^2.0.3",
     "styled-components": "^5.3.3",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

@@ -1,66 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
-//import "../../styles/footer.scss";
-import breakpoint from "../../Commons/breakpoint";
-import styled from "styled-components";
-/* { css }  */
-
-const A = styled.button`
-  text-decoration: none;
-  background-color: red;
-`;
-const FooterContainer = styled.div`
-  @media only screen and ${breakpoint.device.xs} {
-    width: 100%;
-    text-decoration: none;
-    text-align: center;
-  }
-  @media only screen and ${breakpoint.device.sm} {
-    width: 100%;
-    text-decoration: none;
-    text-align: center;
-  }
-  @media only screen and ${breakpoint.device.lg} {
-    width: 100%;
-    text-align: center;
-    text-decoration: none;
-  }
-  width: 100%;
-  background-color: #122229;
-  display: flex;
-  flex-direction: row;
-  width: 100vw;
-  height: 9vh;
-  line-height: 9vh;
-  align-items: center;
-`;
-const FooterContainerNav = styled.ul`
-  display: flex;
-  margin: auto;
-  justify-content: space-between;
-`;
-const FooterContainerNavLi = styled.li`
-  width: 200px;
-  font-family: "Calibri", sans-serif;
-  font-size: 1.6rem;
-  text-decoration: none;
-`;
 
 const Footer = () => (
-  <FooterContainer>
-    <FooterContainerNav>
-      <FooterContainerNavLi>
-        <Link to="/" className="footer-container-title">
-          Météo actuelle
-        </Link>
-      </FooterContainerNavLi>
-      <FooterContainerNavLi>
-        <Link to="/contact" className="footer-container-title">
-          Contact
-        </Link>
-      </FooterContainerNavLi>
-    </FooterContainerNav>
-  </FooterContainer>
+  <div
+    className="w-full flex flex-row h-16 justify-around 
+    items-center bg-gray-300 fixed bottom-0 left-0 font-sans"
+  >
+    <div>
+      <Link to="/" className="footer-container-title">
+        Météo actuelle
+      </Link>
+    </div>
+    <div>
+      <Link to="/contact" className="footer-container-title">
+        Contact
+      </Link>
+    </div>
+  </div>
 );
 
 export default Footer;
